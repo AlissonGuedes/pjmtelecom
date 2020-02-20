@@ -1,0 +1,84 @@
+<?php
+
+/*
+ * se o site estiver com `tb_configuracao`.`publicado` = 1
+ * [site site DISPONÍVEL], exibir este bloco
+ */
+if ( configuracoes('publicado') === '1' )
+{
+
+	/*
+	 * se o site estiver com `tb_configuracao`.`manutencao` = 1
+	 * [site site DISPONÍVEL], exibir este bloco
+	 */
+	if ( configuracoes('manutencao') === '' )
+	{
+
+		require_once (VIEWPATH . 'templates' . DS . 'bloqueios' . DS . 'manutencao.phtml');
+
+	}
+	else
+	{
+
+		/*
+		 * Inserir o Menu do site
+		 */
+		require_once ('sidebar.phtml');
+
+		echo '	<!-- # begin content -->
+				<div id="content" class="row">';
+
+		/*
+		 * Inserir o Header do site
+		 */
+		require_once ('header.phtml');
+
+		echo '		<!-- # begin main -->
+					<div id="main">';
+
+		/*
+		 * Inserir breadcrumbs
+		 * localização atual do usuário no site
+		 */
+		# require_once('breadcrumbs.phtml');
+
+		/*
+		 * Exibe a view vinda da classe Loader
+		 */
+		#require(VIEWPATH . 'templates' . DS . $view);
+		require_once ($this -> renderVars['file']);
+
+		echo '		</div>
+					<!-- # end main -->';
+
+		echo '	</div>
+				<!--/ # end content -->';
+
+		/*
+		 * Inserir o Footer do site
+		 */
+        echo '<div style="padding-left: 260px;">';
+		require_once ('footer.phtml');
+        echo '</div>';
+		/*
+		 * Modal para abrir links externos conforme indicação
+		 * em <a href="http://www.outrapagina.com/"
+		 * target="_modal">Abrir Navegador</a>
+		 */
+		# require_once (VIEWPATH . '_templates' . DS . 'includes' .
+		# DS . 'navegador.modal.phtml');
+
+	}// endif ( configuracoes('manutencao') === '1' )
+
+}
+/*
+ * se o site estiver com `tb_configuracao`.`publicado` 0
+ * [site BLOQUEADO], exibir este bloco
+ */
+else
+{
+
+	require_once (VIEWPATH . 'templates' . DS . 'bloqueios' . DS . 'indisponivel.phtml');
+
+}// endif ( configuracoes('publicado') === '1' )
+?>

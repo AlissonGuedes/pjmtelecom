@@ -1,0 +1,60 @@
+<?php
+if ( isAjax() )
+{
+	require_once ($this -> renderVars['file']);
+	exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="<?= configuracoes('language'); ?>">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+		<meta name="description" content="<?= configuracoes('meta_description'); ?>">
+		<meta name="keywords" content="<?= configuracoes('meta_keywords'); ?>">
+		<meta name="generator" content="<?= configuracoes('meta_generator'); ?>">
+		<meta name="author" content="<?= configuracoes('meta_author'); ?>">
+		<meta name="DC.creator.address" content="<?= configuracoes('meta_creator_address'); ?>">
+		<meta name="custodian" content="<?= configuracoes('meta_custodian'); ?>">
+		<meta name="DC.publisher" content="<?= configuracoes('meta_publisher'); ?>">
+		<meta name="revisit-after" content="<?= configuracoes('meta_revisit_after'); ?>">
+		<meta name="rating" content="<?= configuracoes('meta_rating'); ?>">
+		<meta name="robots" content="<?= configuracoes('meta_robots'); ?>">
+		<meta name="theme-color" content="<?= configuracoes('theme_color'); ?>">
+		<meta name="apple-mobile-web-app-status-bar-style" content="<?= configuracoes('theme_color'); ?>">
+		<meta name="msapplication-navbutton-color" content="<?= configuracoes('theme_color'); ?>">
+		<meta name="DC.title" content="<?= configuracoes('meta_title'); ?>">
+		<meta property="og:locale" content="<?= configuracoes('language'); ?>">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="<?= configuracoes('meta_title'); ?>">
+		<meta property="og:description" content="<?= configuracoes('meta_description'); ?>">
+		<meta property="og:url" content="<?= configuracoes('website'); ?>">
+		<meta property="og:site_name" content="<?= configuracoes('meta_title'); ?>">
+		<meta property="fb:app_id" content="882977512073400">
+		<meta property="og:image" content="<?= configuracoes('website') . base_path(true) . 'img/tela.jpg'; ?>">
+		<meta property="og:image:secure_url" content="<?= configuracoes('website') . base_path(true) . 'img/tela.jpg'; ?>">
+		<meta property="og:image:width" content="200">
+		<meta property="og:image:height" content="200">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:description" content="<?= configuracoes('meta_description'); ?>">
+		<meta name="twitter:title" content="<?= configuracoes('meta_title'); ?>">
+		<meta name="twitter:image" content="<?= configuracoes('website') . base_path(true) . 'img/tela.jpg'; ?>">
+		<title><?= configuracoes('meta_title'); ?></title>
+		<noscript>
+			<meta http-equiv="Refresh" content="0; url=<?=base_url(); ?>nojs">
+		</noscript>
+		<?php require_once (VIEWPATH . 'templates' . DS . 'includes' . DS . 'styles.phtml'); ?>
+	</head>
+	
+	<body class="vertical-layout vertical-menu-collapsible page-header-dark vertical-modern-menu 1-column blank-page
+			<?= ! isset($_SESSION[USERDATA]) ? 'login-bg' : null; ?>
+			<?= configuracoes('hide_menu', 'tb_usuario') === 'S' ? 'condense-menu' : ''; ?>"
+			data-open="click"
+			data-menu="vertical-modern-menu"
+			data-col="2-columns">
+			<?php require_once (VIEWPATH . 'templates' . DS . 'body.phtml'); ?>
+			<?php require_once (VIEWPATH . 'templates' . DS . 'includes' . DS . 'javascript.phtml'); ?>
+	</body>
+
+</html>

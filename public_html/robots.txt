@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /admin
+Disallow: /dev
+Disallow: /desenvolvimento
+Disallow: /production
+Disallow: /testing
+Disallow: /teste

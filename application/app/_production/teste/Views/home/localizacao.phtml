@@ -1,0 +1,64 @@
+<form method="post" action="<?= base_url(); ?>">
+	<div class="modal-content">
+	    <div class="modal-header">
+    		<h6 class="modal-title center-align">
+    			Alterar Localização
+    		</h6>
+	    </div>
+	    <div class="modal-body">
+    		<div class="row">
+    			<div class="col s12">
+    				<div class="input-field">
+    					<select name="cidade" data-searchable="true" id="select_cidades" data-minimum="0" placeholder="Informe a sua cidade" data-selected="<?= $_COOKIE['cidade']; ?>" style="width: 100%;">
+    						<option value="" selected disabled>Informe a sua cidade</option>
+    						<?php
+    						if ( $cidades -> numRows() > 0 )
+    						:
+    							foreach ( $cidades -> result() as $cidade )
+    							:
+    								echo '<option value="' . $cidade -> id . '">' . $cidade -> cidade . '</option>';
+    							endforeach;
+    						endif;
+    						?>
+    					</select>
+    					<label for="cidade">
+    					</label>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col s12">
+    				<div class="input-field">
+    					<select name="bairro" data-searchable="true" id="select_bairros" data-minimum="0" data-cidade="" placeholder="Informe o seu bairro" data-selected="<?= $_COOKIE['bairro']; ?>" style="width: 100%;">
+    
+    					</select>
+    					<label for="bairro">
+    					</label>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="modal-footer orange">
+    		<button type="reset" class="btn-small btn-flat transparent modal-close waves-effect waves-dark left" data-tooltip="Cancelar" data-position="right">
+    			<i class="material-icons left hide-on-small-only">close</i>
+    			<span>
+    				Cancelar</span>
+    		</button>
+    		<button type="submit" value="salvar" class="btn-small indigo waves-effect waves-light right" data-tooltip="Confirmar" data-position="left">
+    			<i class="material-icons left hide-on-small-only">location_searching</i>
+    			<span>
+    				Alterar</span>
+    		</button>
+    		<input type="hidden" name="acao" value="localizacao">
+    	</div>
+	</div>
+</form>
+
+<script>
+	$(document).ready(function()
+	{
+		load_plugins();
+		load_functions();
+		Apps.select();
+	}); 
+</script>

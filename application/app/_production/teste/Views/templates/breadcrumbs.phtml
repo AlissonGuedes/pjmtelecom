@@ -1,0 +1,69 @@
+<?php if ( isset($_SESSION[USERDATA]) ) : ?>
+<?php
+global $CI;
+?>
+<div class="breadcrumbs-dark" id="breadcrumbs-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col s10 m6 l6">
+				<h5 class="breadcrumbs-title mt-0 mb-0">
+					Cards Basic
+				</h5>
+				<ol class="breadcrumbs mb-0">
+					<?php if ( ! empty($CI -> uri -> segments ) ) :
+					?>
+					<li class="breadcrumb-item">
+						<a href="<?= base_url(); ?>">
+							Dashboard
+						</a>
+					</li><?php $total_segments=count($CI -> uri -> segments);$total=0;foreach ( $CI -> uri -> segments as $segment ) :$total ++;if ( $total < $total_segments ) :?><?php if ($total==1 ) :
+					?>
+					<li class="breadcrumb-item">
+						<a href="<?= base_url() . $segment; ?>" style="text-transform: capitalize;"><?= $segment; ?><
+							/a>
+					</li><?php else : ?><?php endif; ?><?php else : ?>
+					<li class="breadcrumb-item active" style="text-transform: capitalize;">
+						<?= $segment; ?><
+						/li><?php endif;endforeach; ?>
+						<?php else : ?><
+						li class="breadcrumb-item" style="text-transform: capitalize;">
+						<span class="">
+							Início
+						</span>
+					</li><?php endif; ?>
+				</ol>
+			</div>
+			<div class="col s2 m6 l6">
+				<a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="#!" data-activates="dropdown1"><i class="material-icons hide-on-med-and-up">settings</i>
+					<span class="hide-on-small-onl">
+						Settings
+					</span><i class="material-icons right">arrow_drop_down</i></a>
+				<ul class="dropdown-content" id="dropdown1" tabindex="0">
+					<li tabindex="0">
+						<a class="grey-text text-darken-2" href="user-profile-page.html">
+							Profile
+							<span class="new badge red">
+								2
+							</span>
+						</a>
+					</li>
+					<li tabindex="0">
+						<a class="grey-text text-darken-2" href="app-contacts.html">
+							Contacts
+						</a>
+					</li>
+					<li tabindex="0">
+						<a class="grey-text text-darken-2" href="page-faq.html">
+							FAQ
+						</a>
+					</li><li class="divider" tabindex="-1"></li>
+					<li tabindex="0">
+						<a class="grey-text text-darken-2" href="user-login.html">
+							Logout
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><?php endif; ?>

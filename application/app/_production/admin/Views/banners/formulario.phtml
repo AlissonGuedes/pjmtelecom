@@ -1,0 +1,273 @@
+<?php $disabled = null; ?>
+
+<form action="<?php echo base_url(); ?>banners"
+	  method="post"
+	  enctype="multipart/form-data"
+	  id="frm-delete-banner"
+	  autocomplete="off">
+
+	<!-- modal-content -->
+	<div class="modal-content no-padding">
+
+		<!-- modal-header -->
+		<div class="modal-header">
+
+			<ul class="tabs tabs-fixed-width z-depth-1"
+				style="background: transparent;">
+				<li class="tab">
+					<a href="#tab_banner"
+					   class="active">
+						Banner
+					</a>
+				</li>
+				<li class="tab">
+					<a href="#tab_cidade">
+						Cidades
+					</a>
+				</li>
+			</ul>
+
+		</div>
+		<!--/modal-header -->
+
+		<!-- modal-body -->
+		<div class="modal-body no-padding">
+
+			<!-- row -->
+			<div class="row">
+
+				<!-- col -->
+				<div class="col s12 m6 offset-s0 offset-m3">
+
+					<!-- #tab_banner -->
+					<div id="tab_banner">
+
+						<!-- titulo -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+								<input type="text"
+									   name="titulo"
+									   value="<?= isset($row) ? $row -> getTitulo() : null; ?>"
+									   id="titulo">
+								<div class="line-ripple indigo"></div>
+								<label for="titulo"
+									   class="<?= isset($row) ? '' : null; ?>">
+									Título
+								</label>
+							</div>
+							<div class="helper-line">
+								<div class="helper-text"></div>
+								<div class="helper-counter"></div>
+							</div>
+						</div>
+						<!--/titulo -->
+
+						<!-- imagem -->
+						<div class="input-field-container">
+							<div class="file-field input-field transparent indigo-text">
+								<div class="btn indigo">
+									<span>
+										Imagem
+									</span>
+									<input type="file"
+										   name="imagem"
+										   id="imagem"
+										   title="<?= isset($row) ? $row -> getImagem('d/m/Y') : 'Selecionar imagem'; ?>"
+										   accept="image/*">
+								</div>
+								<div class="file-path-wrapper">
+									<input type="text"
+										   value="<?= isset($row) ? $row -> getImagem('d/m/Y') : null; ?>"
+										   class="file-path validate">
+								</div>
+							</div>
+							<div class="helper-line">
+								<div class="helper-text"></div>
+								<div class="helper-counter"></div>
+							</div>
+						</div>
+						<!--/imagem -->
+
+						<!-- status -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+								<?php
+                                $checked = 'checked="checked"';
+                                if (isset($row) && $row -> getStatus() === '0') {
+                                    $checked = null;
+                                }
+                                ?>
+								<div class="switch font-weight-600">
+									<label for="status"
+										   class="">
+										Exibir
+									</label>
+									<label class="indigo right">
+										<input type="checkbox"
+											   name="status"
+											   class="right"
+											   id="status"
+											   value="1"
+											   <?= $checked; ?>>
+										<span class="lever">
+										</span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<!--/status -->
+
+					</div>
+					<!--/#tab_banner -->
+
+					<!-- #tab_cidade -->
+    				<div id="tab_cidade">
+    					<!-- input-field -->
+					    <div class="input-field-container">
+					        <div class="input-field transparent">
+    					    	<label>
+    						    	Atribuir Cidades ou Bairros:
+    							</label>
+								<br><br>
+								<?php
+
+								if ( isset($cidades) )
+								{
+
+									$c = null;
+									$checked = null;
+									$selected = null;
+									$disabled = null;
+
+									foreach ( $cidades as $cidade )
+									{
+										$c        = isset($row) ? $banners -> getBannerBairro(['P.id_banner' => $row -> getId(), 'P.id_cidade' => $cidade -> id]) -> limit(1) -> getRow() : null;
+										$checked  = isset($row) && ! is_null($c) && $c -> id_cidade == $cidade -> id ? 'checked="checked"' : null;
+										$selected = isset($row) && ! is_null($c) && $c -> id_cidade == $cidade -> id ? 'selected' : null;
+								?>
+								<table id="cidade_<?= $cidade -> id; ?>" class="table striped highlight bulk_action window--table bordered">
+									<thead>
+										<tr class="<?= $selected; ?>">
+											<th class="<?= $selected; ?> mini-cell" colspan="2">
+												<label>
+													<input type="checkbox" <?= $checked; ?> id="selectAllBairros_<?= $cidade -> id; ?>">
+													<span>Cidade: <?= $cidade -> cidade; ?></span>
+												</label>
+											</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+
+										$all_bairros = $bairros -> getBairroUsuario(['B.id_cidade' => $cidade -> id]) -> getAll();
+										if ( isset($all_bairros) )
+										{
+											foreach ( $all_bairros as $bairro )
+											{
+												$b        = isset($row) ? $banners -> getBannerBairro(['P.id_banner' => $row -> getId(), 'P.id_bairro' => $bairro -> id]) -> limit(1) -> getRow() : null;
+												$checked  = isset($row) && ! is_null($b) && $b -> id_bairro == $bairro -> id ? 'checked="checked"' : null;
+												$selected = isset($row) && ! is_null($b) && $b -> id_bairro == $bairro -> id ? 'selected' : null;
+										?>
+											<tr>
+												<td class="<?= $selected; ?> small-cell" style="overflow: hidden; position: relative;">
+												    <label for="<?= $bairro -> id; ?>" class="waves-effect" style="position: absolute;width: 100%;height: 100%;top: 0px;left: 0;"></label>
+													<div class="">
+														<label>
+															<input type="checkbox" 	name="bairros[]" value="<?= $cidade -> id . ':' . $bairro -> id; ?>" <?= $checked; ?> id="<?= $bairro -> id; ?>">
+															<span><?= $bairro -> bairro; ?></span>
+														</label>
+													</div>
+												</td>
+											</tr>
+										<?php
+											}
+										}
+										?>
+									</tbody>
+								</table>
+								<?php
+									}
+								}
+								?>
+    					    </div>
+    					    <div class="helper-line">
+							    <div class="helper-text"></div>
+							    <div class="helper-counter"></div>
+							</div>
+    					</div>
+    					<!--/input-field -->
+    				</div>
+    				<!--/#tab_cidade -->
+
+				</div>
+				<!--/col -->
+
+			</div>
+			<!--/row -->
+
+		</div>
+		<!--/modal-body -->
+
+		<!-- .modal-footer -->
+		<div class="modal-footer hide">
+
+			<button type="reset"
+					class="modal-close waves-effect btn-flat left"
+					data-tooltip="Cancelar"
+					data-position="right">
+				<i class="material-icons left hide-on-small-only">close</i>
+				<span>
+					Cancelar
+				</span>
+			</button>
+
+			<button type="submit"
+					name="salvar"
+					value="salvar"
+					class="btn btn-primary teal waves-effect waves-light btn-small"
+					data-tooltip="Salvar"
+					data-position="left">
+				<i class="material-icons left hide-on-small-only">save</i>
+				<span>
+					Salvar
+				</span>
+			</button>
+
+			<input type="hidden"
+				   name="id"
+				   value="<?= isset($row) ? $row -> getId() : null; ?>">
+			<input type="hidden"
+				   name="action"
+				   class="action"
+				   value="salvar">
+			<input type="hidden"
+				   name="_method"
+				   value="<?= $method; ?>">
+			
+			<input type="hidden"
+				   name="autor"
+				   value="<?= isset($row) ? $row -> getIdAutor() : $_SESSION[USERDATA]['id']; ?>">
+
+		</div>
+		<!--/.modal-footer  -->
+
+	</div>
+	<!--/modal-content -->
+
+</form>
+
+
+<script>
+	load_plugins();
+	load_functions();
+
+	// 	$('input[name="titulo"]').focus();
+
+	$(document).ready(function() {
+		$('.tabs').tabs();
+
+		Apps.checkAll();
+	});
+
+</script>

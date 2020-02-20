@@ -1,0 +1,132 @@
+<form action="<?php echo base_url(); ?>banners" method="post" enctype="multipart/form-data" id="frm-banner" autocomplete="off">
+
+	<div class="breadcrumbs-dark" id="breadcrumbs-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col s10 m6 l6">
+					<h5 class="breadcrumbs-title mt-0 mb-0">
+						Banners
+					</h5>
+					<ol class="breadcrumbs mb-0">
+						<li class="breadcrumb-item">
+							<a href="<?= base_url(); ?>dashboard">
+								Dashboard
+							</a>
+						</li>
+						<li class="breadcrumb-item active">
+							Banners
+						</li>
+					</ol>
+				</div>
+				<div class="col s2 m6 l6">
+					<div class="bulk-actions right">
+						<div class="hide-on-med-and-down">
+	
+							<button type="button"
+							class="btn blue waves-effect waves-light pink modal-trigger"
+							data-href="<?= base_url(); ?>banners/add"
+							data-toggle="modal"
+							data-target="modal-banner"
+							data-tooltip="Adicionar Banner"
+							data-type="html">
+								<i class="material-icons left">add</i>
+								Adicionar
+							</button>
+	
+							<button type="submit" name="excluir"
+							class="btn btn-danger red btn-excluir"
+							disabled="disabled"
+							data-tooltip="Excluir Banner">
+								<i class="material-icons left">delete</i>
+								Excluir
+							</button>
+	
+						</div>
+	
+						<div class="btn-group hide-on-large-only">
+	
+							<div class="fixed-action-btn direction-top">
+	
+								<button type="button" class="btn-floating btn-large btn-inserir blue waves-effect waves-light modal-trigger animated" data-toggle="modal"
+								data-target="modal-banner" data-tooltip="Adicionar Banner" data-position="left" data-href="<?= base_url(); ?>banners/add" data-type="html">
+									<i class="material-icons">add</i>
+								</button>
+	
+								<button type="submit" name="excluir"
+								class="btn-floating btn-large btn-danger red btn-excluir animated hide"
+								disabled="disabled"
+								data-tooltip="Excluir Enquete">
+									<i class="material-icons left">delete</i>
+								</button>
+	
+							</div>
+	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col s12">
+				<table class="table datatable bulk_action striped"
+					id="banner"
+					data-toggle="modal"
+					data-placeholder="Pesquisar Banners"
+					data-title="Editar Banner"
+					data-type="html">
+					<thead>
+						<tr>
+							<th class="center-align mini-cell" data-clickable="false">
+								<label>
+									<input type="checkbox" id="check-all" class="trash" value="">
+									<span>
+									</span>
+								</label>
+							</th>
+							<th class="center-align mini-cell">
+								#
+							</th>
+							<th class="center-align mini-cell">
+								Imagem
+							</th>
+							<th class="small-cell left-align">
+								Título
+							</th>
+							<!-- <th class="small-cell left-align">
+								Cidade
+							</th>
+							<th class="small-cell left-align">
+								Bairro
+							</th> -->
+							<th class="small-cell left-align">
+								Autor
+							</th>
+							<th class="small-cell center-align">
+								Data de Criação
+							</th>
+							<th class="mini-cell center-align">
+								Situação
+							</th>
+							<th class="mini-cell center-align" data-clickable="false">
+								<i class="material-icons">edit</i>
+							</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<input type="hidden" name="_method" value="delete">
+
+</form>
+
+<!-- modal-banner -->
+<div id="modal-banner" class="modal full-screen modal-fixed-header" data-dismissible="false">
+
+</div>
+<!--/modal-banner -->
+

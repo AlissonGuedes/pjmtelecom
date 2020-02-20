@@ -1,0 +1,858 @@
+<div class="breadcrumbs-dark" id="breadcrumbs-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col s10 m6 l6">
+				<h5 class="breadcrumbs-title mt-0 mb-0">
+					Empresa
+				</h5>
+				<ol class="breadcrumbs mb-0">
+					<li class="breadcrumb-item">
+						<a href="<?= base_url(); ?>dashboard">
+							Dashboard
+						</a>
+					</li>
+					<li class="breadcrumb-item active">
+						Empresa
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- row -->
+<div class="row">
+
+    <!-- col s12 -->
+    <div class="col s12">
+    
+        <!-- container -->
+        <div class="container mt-2 mb-2">
+        
+        	<!-- form -->
+        	<form action="<?php echo base_url(); ?>empresa" method="post" enctype="multipart/form-data" id="frm-configuracoes" autocomplete="off">
+        
+                <!-- card -->
+                <div class="card z-depth-0 border-1">
+        
+                    <!-- card-content -->
+                    <div class="card-content">
+        
+                		<!-- row -->
+                		<div class="row">
+                
+                			<!-- col s12 m6 -->
+                			<div class="col s12 m6">
+                
+                				<!-- row - CONFIGURAÇÕES BÁSICAS -->
+                				<div class="row">
+                
+                					<!-- col -->
+                					<div class="col s12">
+                
+                						<!-- card  -->
+                						<div class="card z-depth-0 border-1">
+                
+                							<!-- card-title -->
+                							<h4 class="card-title bordered mb-0 padding-3">
+                								Configurações Básicas
+                							</h4>
+                							<!--/card-title -->
+                
+                							<!-- card-content -->
+                							<div class="card-content">
+                
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col s12 -->
+                									<div class="col s12">
+                
+                										<!-- language -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<div class="row">
+	                												<div class="col s3 m2">
+	                													<label class="label">
+	                														Idioma
+	                													</label>
+	                												</div>
+	                												<div class="col s9 m10">
+	                													<button type="button"
+	                														class="transparent dropdown-trigger btn-flat"
+																			data-target="translation-dropdown"
+																			disabled="disabled">
+	                														<span class="flag-icon flag-icon-br">
+	                														</span>
+	                													</button>
+	                												</div>
+	                											</div>
+	                											<ul class="dropdown-content" id="translation-dropdown" tabindex="0">
+	                												<li tabindex="0">
+	                													<a class="grey-text text-darken-1" href="#!"><i class="flag-icon flag-icon-br"></i> Português</a>
+	                												</li>
+	                												<li tabindex="0">
+	                													<a class="grey-text text-darken-1" href="#!"><i class="flag-icon flag-icon-gb"></i> English</a>
+	                												</li>
+	                											</ul>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/language -->
+
+                										<!-- path -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="text" name="path" id="path" value="<?= configuracoes('path') ?? null; ?>" disabled="disabled">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="path" class="<?= configuracoes('path') ? 'active' : null; ?>">
+	                												Diretório Root
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+                										</div>
+                										<!--/path -->
+                
+                										<!-- logomarca -->
+                										<div class="row">
+                											<div class="col s6 m9">
+                												<div class="input-field-container">
+	                												<div class="file-field input-field indigo-text  transparent">
+	                													<div class="btn blue">
+	                														<span>
+	                															Logo
+	                														</span>
+	                														<input type="file" name="logomarca" id="logomarca" title="<?= configuracoes('logomarca') ?? 'Selecionar imagem'; ?>" accept="image/*">
+	                													</div>
+	                													<div class="file-path-wrapper">
+	                														<input type="text" value="<?= configuracoes('logomarca') ?? null; ?>" class="file-path validate">
+	                													</div>
+	                												</div>
+                												</div>
+                											</div>
+                											<div class="col s6 m3 center-align indigo-text  transparent">
+                												<div class="input-field indigo-text  transparent" style="border: 1px solid rgba(0,0,0,.42); border-radius: 4px; position: relative; overflow: hidden; cursor: pointer;">
+                													<img src="<?= configuracoes('logomarca') ?? null; ?>"
+                													class="materialbox col s12" alt="" height="60">
+                												</div>
+                											</div>
+                										</div>
+                										<!--/logomarca -->
+                
+                									</div>
+                									<!--/col s12 -->
+                
+                								</div>
+                								<!--/row -->
+                
+                							</div>
+                							<!--/card-content -->
+                
+                						</div>
+                						<!--/card z-depth-0 border-1 -->
+                
+                					</div>
+                					<!--/col s12 -->
+                
+                				</div>
+                				<!--/row - CONFIGURAÇÕES BÁSICAS -->
+                
+                				<!-- row - APRESENTAÇÃO -->
+                				<div class="row">
+                
+                					<!-- col s12 -->
+                					<div class="col s12">
+                
+                						<!-- card z-depth-0 border-1 -->
+                						<div class="card z-depth-0 border-1">
+                
+                							<!-- card-title -->
+                							<h4 class="card-title bordered mb-0 padding-3">
+                								Apresentação
+                							</h4>
+                							<!--/card-title -->
+                
+                							<!-- card-content -->
+                							<div class="card-content">
+                
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12">
+                
+                										<!-- meta_description -->
+                										<div class="input-field-container">
+	                										<div class="textarea-field indigo-text  transparent">
+	                											<label for="texto_apresentacao" class="<?= configuracoes('texto_apresentacao') ? 'active' : null; ?>">
+	                												Texto da página Quem Somos
+	                											</label>
+	                											<textarea
+	                												name="texto_apresentacao"
+	                												class="materialize-textarea"
+	                												id="texto_apresentacao"
+	                												style="height: 326px; max-height: 326px;"
+	                											><?= configuracoes('texto_apresentacao') ?? null; ?></textarea>
+	                											<div class="line-ripple blue darken-4"></div>
+	                										</div>
+                										</div>
+                										<!--/meta_description -->
+                
+                									</div>
+                									<!--/col -->
+                
+                								</div>
+                								<!--/row -->
+                
+                							</div>
+                							<!--/card-content -->
+                
+                						</div>
+                						<!--/card z-depth-0 border-1 -->
+                
+                					</div>
+                					<!--/col s12 -->
+                
+                				</div>
+                				<!--/row - APRESENTAÇÃO -->
+                
+                			</div>
+                			<!--/col s12 m6 -->
+                
+                			<!-- col s12 m6 -->
+                			<div class="col s12 m6">
+                
+                				<!-- row - CONTATO DO SITE -->
+                				<div class="row">
+                
+                					<!-- col s12 -->
+                					<div class="col s12">
+                
+                						<!-- card z-depth-0 border-1 -->
+                						<div class="card z-depth-0 border-1">
+                
+                							<!-- card-title -->
+                							<h4 class="card-title bordered mb-0 padding-3">
+                								Informações de Contato
+                							</h4>
+                							<!--/card-title -->
+                
+                							<!-- card-content -->
+                							<div class="card-content">
+
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12">
+                
+                										<!-- telefone -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="email" name="email" id="email" class="" value="<?= configuracoes('email') ?? null; ?>">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="email" class="<?= configuracoes('email') ? 'active' : null; ?>">
+	                												E-mail
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/telefone -->
+                
+                									</div>
+                									<!--/col -->
+
+                								</div>
+                								<!--/row -->
+
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12 m6">
+                
+                										<!-- telefone -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="text" name="telefone" id="telefone" class="is_phone" value="<?= configuracoes('telefone') ?? null; ?>" placeholder="">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="telefone" class="<?= configuracoes('telefone') ? 'active' : null; ?>">
+	                												Telefone
+	                											</label>
+	                										</div>
+				     										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/telefone -->
+                
+                									</div>
+                									<!--/col -->
+                
+                									<!-- col -->
+                									<div class="col s12 m6">
+                
+                										<!-- celular -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="text" name="celular" id="celular" class="is_celular" value="<?= configuracoes('celular') ?? null; ?>" placeholder="">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="celular" class="<?= configuracoes('celular') ? 'active' : null; ?>">
+	                												Celular
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/celular -->
+                
+                									</div>
+                									<!--/col -->
+                
+                								</div>
+                								<!--/row -->
+                
+                							</div>
+                							<!--/card-content -->
+                
+                						</div>
+                						<!--/card z-depth-0 border-1 -->
+                
+                					</div>
+                					<!--/col s12 -->
+                
+                				</div>
+                				<!--/row - CONTATO DO SITE -->
+                
+                				<!-- row - MÍDIAS SOCIAIS -->
+                				<div class="row">
+                
+                					<!-- col s12 -->
+                					<div class="col s12">
+                
+                						<!-- card z-depth-0 border-1 -->
+                						<div class="card z-depth-0 border-1">
+                
+                							<!-- card-title -->
+                							<h4 class="card-title bordered mb-0 padding-3">
+                								Mídias Sociais
+                							</h4>
+                							<!--/card-title -->
+                
+                							<!-- card-content -->
+                							<div class="card-content">
+                
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12">
+                
+                										<!-- facebook -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="url" name="facebook" id="facebook" value="<?= configuracoes('facebook') ?? null; ?>">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="facebook" class="<?= configuracoes('facebook') ? 'active' : null; ?>">
+	                												URL Facebook
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/facebook -->
+                
+                									</div>
+                									<!--/col -->
+                
+                								</div>
+                								<!--/row -->
+                
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12">
+                
+                										<!-- instagram -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="url" name="instagram" id="instagram" value="<?= configuracoes('instagram') ?? null; ?>">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="instagram" class="<?= configuracoes('instagram') ? 'active' : null; ?>">
+	                												URL Instagram
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/instagram -->
+                
+                									</div>
+                									<!--/col -->
+                
+                								</div>
+                								<!--/row -->
+                
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12">
+                
+                										<!-- twitter -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="url" name="twitter" id="twitter" value="<?= configuracoes('twitter') ?? null; ?>">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="twitter" class="<?= configuracoes('twitter') ? 'active' : null; ?>">
+	                												URL Twitter
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/twitter -->
+                
+                									</div>
+                									<!--/col -->
+                
+                								</div>
+                								<!--/row -->
+                
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12">
+                
+                										<!-- linkedin -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="url" name="linkedin" id="linkedin" value="<?= configuracoes('linkedin') ?? null; ?>">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="linkedin" class="<?= configuracoes('linkedin') ? 'active' : null; ?>">
+	                												URL LinkedIn
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+                										</div>
+                										<!--/linkedin -->
+                
+                									</div>
+                									<!--/col -->
+                
+                								</div>
+                								<!--/row -->
+                
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12">
+                
+                										<!-- gplus -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="url" name="gplus" id="gplus" value="<?= configuracoes('gplus') ?? null; ?>">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="gplus" class="<?= configuracoes('gplus') ? 'active' : null; ?>">
+	                												URL Google+
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/gplus -->
+                
+                									</div>
+                									<!--/col -->
+                
+                								</div>
+                								<!--/row -->
+                
+                							</div>
+                							<!--/card-content -->
+                
+                						</div>
+                						<!--/card z-depth-0 border-1 -->
+                
+                					</div>
+                					<!--/col s12 -->
+                
+                				</div>
+                				<!--/row - MÍDIAS SOCIAIS -->
+                
+                			</div>
+                			<!--/col s12 m6 -->
+                
+                		</div>
+                		<!--/row -->
+                
+                		<!-- row -->
+                		<div class="row">
+                
+                			<!-- col s12 m6 -->
+                			<div class="col s12 m6">
+                
+                				<!-- row - SEO -->
+                				<div class="row">
+                
+                					<!-- col s12 -->
+                					<div class="col s12">
+                
+                						<!-- card -->
+                						<div class="card z-depth-0 border-1">
+                
+                							<!-- card-title -->
+                							<h4 class="card-title bordered mb-0 padding-3">
+                								SEO - Otimizações do Site
+                							</h4>
+                							<!--/card-title -->
+                
+                							<!-- card-content -->
+                							<div class="card-content">
+                
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12">
+                
+                										<!-- meta_title -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<input type="text" name="meta_title" id="meta_title" value="<?= configuracoes('meta_title') ?? null; ?>"
+	                											maxlength="20">
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="meta_title" class="<?= configuracoes('meta_title') ? 'active' : null; ?>">
+	                												Título do Site
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/meta_title -->
+                
+                										<!-- meta_description -->
+                										<div class="input-field-container">
+	                										<div class="textarea-field indigo-text  transparent">
+	                											<textarea name="meta_description" class="materialize-textarea" id="meta_description"
+	                											maxlength="320"
+	                										><?= configuracoes('meta_description') ?? null; ?></textarea>
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="meta_description" class="<?= configuracoes('meta_description') ? 'active' : null; ?>">
+	                												Descrição do Site
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/meta_description -->
+                
+                										<!-- meta_keywords -->
+                										<div class="input-field-container">
+	                										<div class="input-field indigo-text  transparent">
+	                											<?php
+	                											$keys = null;
+	                											$keywords = configuracoes('meta_keywords');
+	                											if ( ! empty($keywords) )
+	                											{
+	                												$keywords = explode(',', $keywords);
+	                												foreach ( $keywords as $key )
+	                												{
+	                													$keys .= '<input type="hidden" name="meta_keywords[]" value="' . trim($key) . '">';
+	                												}
+	                											}
+	                											?>
+	                											<div class="chips" data-name="meta_keywords[]"></div>
+	                											<?= $keys; ?>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/meta_keywords -->
+                
+                									</div>
+                									<!--/col -->
+                
+                								</div>
+                								<!--/row -->
+                
+                							</div>
+                							<!--/card-content -->
+                
+                						</div>
+                						<!--/card -->
+                
+                					</div>
+                					<!--/col s12 -->
+                
+                				</div>
+                				<!--/row - SEO  -->
+                
+                			</div>
+                			<!--/col s12 m6 -->
+                
+                			<!-- col s12 m6 -->
+                			<div class="col s12 m6">
+                
+                				<!-- row - MANUTENÇÃO -->
+                				<div class="row">
+                
+                					<!-- col s12 -->
+                					<div class="col s12">
+                
+                						<!-- card z-depth-0 border-1 -->
+                						<div class="card z-depth-0 border-1">
+                
+                							<!-- card-title -->
+                							<h4 class="card-title bordered mb-0 padding-3">
+                								Bloqueios
+                							</h4>
+                							<!--/card-title -->
+                
+                							<!-- card-content -->
+                							<div class="card-content">
+                
+                								<!-- row -->
+                								<div class="row">
+                
+                									<!-- col -->
+                									<div class="col s12">
+                
+                										<!-- msg_manutencao -->
+                										<div class="input-field-container">
+	                										<div class="textarea-field indigo-text  transparent">
+	                											<textarea name="msg_manutencao" class="materialize-textarea" id="msg_manutencao"
+	                											maxlength="500"
+	                										><?= configuracoes('msg_manutencao') ?? null; ?></textarea>
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="msg_manutencao" class="<?= configuracoes('msg_manutencao') ? 'active' : null; ?>">
+	                												Mensagem de Manutenção
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/msg_manutencao -->
+                
+                										<!-- msg_bloqueio_temporario -->
+                										<div class="input-field-container">
+	                										<div class="textarea-field indigo-text  transparent">
+	                											<textarea name="msg_bloqueio_temporario" class="materialize-textarea" id="msg_bloqueio_temporario"
+	                											maxlength="500"
+	                										><?= configuracoes('msg_bloqueio_temporario') ?? null; ?></textarea>
+	                											<div class="line-ripple blue darken-4"></div>
+	                											<label for="msg_bloqueio_temporario" class="<?= configuracoes('msg_bloqueio_temporario') ? 'active' : null; ?>">
+	                												Mensagem de bloqueio temporário
+	                											</label>
+	                										</div>
+	                										<div class="helper-line">
+	                											<div class="helper-text"></div>
+	                											<div class="helper-counter"></div>
+	                										</div>
+	                									</div>
+                										<!--/msg_bloqueio_temporario -->
+                
+                										<!-- row -->
+                										<div class="row">
+                
+                											<!-- col s12 m6 -->
+                											<div class="col s12 m6">
+                
+                												<!-- status -->
+                												<div class="input-field-container">
+	                												<div class="input-field indigo-text  transparent transparent">
+	                													<?php
+	                
+	                													// 0 - Manutenção inativa
+	                													// 1 - Manutenção ativa
+	                
+	                													$checked = null;
+	                
+	                													if ( configuracoes('manutencao') === '1' )
+	                														$checked = 'checked="checked"';
+	                													?>
+	                													<div class="switch font-weight-600 left">
+	                														<label for="manutencao" class="left">
+	                															Site em manutenção
+	                														</label>
+	                														<label class="amber">
+	                															<input type="checkbox" name="manutencao" class="right" id="manutencao" value="1" <?= $checked; ?>>
+	                															<span class="lever right">
+	                															</span>
+	                														</label>
+	                													</div>
+	                												</div>
+	                												<div class="helper-line">
+			                											<div class="helper-text"></div>
+			                											<div class="helper-counter"></div>
+			                										</div>
+	                											</div>
+                												<!--/status -->
+                
+                											</div>
+                											<!--/col s12 m6 -->
+                										</div>
+                										<!--/row -->
+                
+                										<!-- row -->
+                										<div class="row">
+                
+                											<!-- col s12 m6 -->
+                											<div class="col s12 m6">
+                
+                												<!-- status -->
+                												<div class="input-field-container">
+	                												<div class="input-field indigo-text transparent">
+	                													<?php
+	                
+	                													// 0 - Site publicado
+	                													// 1 - Site bloqueado
+	                
+	                													$checked = null;
+	                
+	                													if ( configuracoes('publicado') === '1' )
+	                														$checked = 'checked="checked"';
+	                													?>
+	                													<div class="switch font-weight-600 left">
+	                														<label for="publicado" class="left">
+	                															Publicado
+	                														</label>
+	                														<label class="blue">
+	                															<input type="checkbox" name="publicado" class="right" id="publicado" value="1" <?= $checked; ?>>
+	                															<span class="lever right">
+	                															</span>
+	                														</label>
+	                													</div>
+	                												</div>
+	                												<div class="helper-line">
+			                											<div class="helper-text"></div>
+			                											<div class="helper-counter"></div>
+			                										</div>
+	                											</div>
+                												<!--/status -->
+                
+                											</div>
+                											<!--/col s12 m6 -->
+                
+                										</div>
+                										<!--/row -->
+                
+                									</div>
+                									<!--/col -->
+                
+                								</div>
+                								<!--/row -->
+                
+                							</div>
+                							<!--/card-content -->
+                
+                						</div>
+                						<!--/card z-depth-0 border-1 -->
+                
+                					</div>
+                					<!--/col -->
+                
+                				</div>
+                				<!--/row - MANUTENÇÃO  -->
+                
+                			</div>
+                			<!--/col s12 m6 -->
+                
+                		</div>
+                		<!--/row -->
+                
+                		<!-- row -->
+                		<div class="row">
+                
+                			<!-- col s12 -->
+                			<div class="col s12">
+                
+                				<button type="submit" name="salvar" value="salvar" class="btn btn-primary btn-large teal waves-effect waves-light right mt-2 mb-2 mr-1 ml-1" data-tooltip="Salvar" data-position="left">
+                					<i class="material-icons left hide-on-small-only">save</i>
+                					<span>
+                						Salvar
+                					</span>
+                				</button>
+                
+                			</div>
+                			<!--/col -->
+                
+                		</div>
+                		<!--/row  -->
+                		
+                    </div>
+                    <!--/card-content -->
+        
+                </div>
+                <!--/card -->
+                
+                	<input type="hidden" name="id" value="<?= configuracoes('id', 'tb_configuracao', ['id' => 1]); ?>">
+                	<input type="hidden" name="action" class="action" value="salvar">
+                	<input type="hidden" name="_method" value="<?= $method; ?>">
+        
+        	</form>
+        	<!--/form -->
+        
+        </div>
+        <!--/container -->
+
+    </div>
+    <!--/col s12 -->
+
+</div>
+<!--/row -->
+
+<div id="modal-quemsomos" class="modal modal-fixed-header modal-fixed-footer">
+
+    <div class="modal-header">
+        <h4 class="center-align">Texto de Apresentação</h4>
+    </div>
+
+    <div class="modal-content">
+
+        <p>Escreva aqui o texto de apresentação sobre o seu negócio para exibi-lo na página Quem Somos.</p>
+        
+        <textarea id="texto-quemsomos" class="texto_apresentacao editor" style="height: 90%; width: 100%;"><?= configuracoes('texto_apresentacao'); ?></textarea>
+
+    </div>
+
+    <div class="modal-footer">
+      <a href="javascript:void(0);" class="btn modal-close waves-effect waves-light teal">Fechar</a>
+    </div>
+
+</div>
+

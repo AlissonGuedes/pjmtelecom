@@ -1,0 +1,89 @@
+<?php if (is_logged()) : ?>
+<!-- START HEADER -->
+<header id="header" class="page-topbar"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<!-- start header nav-->
+	<div class="navbar navbar-fixed">
+		<nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark indigo darken-4">
+		    
+			<div class="nav-wrapper">
+
+				<a href="#" data-target="slide-out" class="sidebar-collapse sidenav-trigger btn-floating btn-medium z-depth-0 transparent hide-on-large-only">
+					<i class="material-icons">menu</i>
+					<span></span>
+				</a>
+
+				<div class="brand-sidebar hide-on-display-modal">
+					<h1 class="logo-wrapper">
+						<a class="brand-logo" href="<?= base_url(); ?>">
+							<img src="<?= configuracoes('logomarca') ?? null; ?>" alt="<?= configuracoes('meta_title') ?? null; ?>"
+								 class="">
+							<span class="logo-text hide-on-med-and-down hide">
+								<?= configuracoes('meta_title'); ?>
+							</span>
+						</a>
+					</h1>
+				</div>
+				
+				<div class="page-title white-text"></div>
+
+				<div class="header-search-wrapper hide-on-med-and-down hide-on-display-modal">
+					<i class="material-icons">search</i>
+					<input class="header-search-input z-depth-2" type="search" name="searchs" placeholder="Buscar no sistema" data-search="-list">
+				</div>
+
+				<ul class="navbar-list right hide-on-display-modal">
+					<li class="hide-on-large-only">
+						<a href="javascript:void(0);" class="waves-effect waves-block waves-light search-button btn-floating transparent">
+							<i class="material-icons">search</i>
+						</a>
+					</li>
+					<li>
+						<a href="<?= site_url(); ?>" target="_blank" data-tooltip="Visualizar o Site" class="waves-effect waves-block waves-light btn-floating transparent" data-target="translation-dropdown" tabindex="0">
+							<i class="material-icons" style="font-size: 32px;"> view_quilt </i>
+						</a>
+					</li>
+				</ul>
+				
+				<div class="submit_form display-none">
+					<button type="submit" name="salvar" value="salvar" class="btn-flat transparent white-text btn-small" data-tooltip="Salvar" data-position="left">
+						<i class="material-icons hide-on-small-only">save</i>
+						<span>
+							Salvar
+						</span>
+					</button>
+				</div>
+
+				<!-- profile-dropdown -->
+				<ul id="profile-dropdown" class="dropdown-content">
+					<li>
+						<a href="<?= base_url(); ?>logout" target="_self" class="grey-text text-darken-1">
+							<i class="material-icons"> keyboard_tab </i>
+							Logout
+						</a>
+					</li>
+				</ul>
+				<!-- end profile-dropdown -->
+
+			</div>
+			
+			<nav class="display-none search-sm">
+				<div class="nav-wrapper">
+					<form>
+						<div class="input-field">
+							<input name="search" class="search-box-sm" type="search">
+							<label class="label-icon" for="search">
+								<i class="material-icons search-sm-icon">search</i>
+							</label>
+							<i class="material-icons search-sm-close">close</i>
+						</div>
+					</form>
+				</div>
+			</nav>
+		</nav>
+	</div>
+	<!-- end header nav-->
+
+</header>
+<!-- END HEADER -->
+<?php endif; ?>

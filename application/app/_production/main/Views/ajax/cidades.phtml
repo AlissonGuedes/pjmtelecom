@@ -1,0 +1,18 @@
+<?php
+
+$return = array();
+
+if ( $cidades -> num_rows() > 0 ) :
+
+	foreach ( $cidades -> result() as $cidade ) :
+
+		$return[] = array(
+			'id' => $cidade -> id,
+			'text' => $cidade -> cidade . ' (' . $cidade -> uf . ')'
+		);
+
+	endforeach;
+
+endif;
+
+echo json_encode($return);

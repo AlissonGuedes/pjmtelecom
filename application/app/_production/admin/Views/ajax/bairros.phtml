@@ -1,0 +1,19 @@
+<?php
+
+$return = array();
+
+if ( $bairros -> numRows() > 0 ) :
+
+	foreach ( $bairros -> result() as $bairro ) :
+
+		$return[] = array( 'id' => $bairro -> id, 'text' => $bairro -> bairro );
+
+	endforeach;
+	
+else :
+
+	$return = array('type' => 'error', 'msg' => 'nenhum bairro cadastrado para esta cidade.');
+
+endif;
+
+echo json_encode($return);

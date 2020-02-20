@@ -1,0 +1,15 @@
+<?php if ( isset($_COOKIE['cidade']) && isset($_COOKIE['bairro']) ) : // is_logged() ) :
+?>
+<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-fixed hide-on-large-only">
+	<ul class="sidenav sidenav-collapsible indigo leftside-navigation collapsible sidenav-fixed hide-on-large-only menu-shadow ps"
+	id="slide-out"
+	data-menu="menu-navigation"
+	data-collapsible="menu-accordion"
+	style="transform: translateX(0%);"
+	>
+		<?php
+		require (VIEWPATH . 'templates' . DS . 'menu.phtml');
+		?>
+	</ul>
+</aside>
+<?php endif; ?>

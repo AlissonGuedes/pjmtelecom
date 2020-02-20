@@ -1,0 +1,56 @@
+<?php if ( isset($_SESSION[USERDATA]) ) : ?>
+<?php
+global $CI;
+?>
+<div class="breadcrumbs-dark" id="breadcrumbs-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col s10 m6 l6">
+				<h5 class="breadcrumbs-title mt-0 mb-0">
+					Cards Basic
+				</h5>
+				<ol class="breadcrumbs mb-0">
+					<?php if ( ! empty($CI -> uri -> segments ) ) :
+					?>
+					<li class="breadcrumb-item">
+						<a href="<?= base_url(); ?>">
+							Dashboard
+						</a>
+					</li>
+					<?php
+					$total_segments = count($CI -> uri -> segments);
+					$total          = 0;
+					foreach ( $CI -> uri -> segments as $segment ) :
+					$total ++;
+					if ( $total < $total_segments ) :
+					?>
+					<?php if  ($total == 1 ) :
+					?>
+					<!-- oculta em dispositivos móveis -->
+					<li class="breadcrumb-item">
+						<a href="<?= base_url() . $segment; ?>" style="text-transform: capitalize;">
+							<?= $segment; ?>
+						</a>
+					</li>
+					<?php else : ?>
+					<?php endif; ?>
+					<?php	else : ?>
+					<!-- oculta em dispositivos móveis -->
+					<li class="breadcrumb-item active" style="text-transform: capitalize;">
+						<?= $segment; ?>
+					</li>
+					<?php	endif;
+						endforeach;
+					?>
+					<?php else : ?>
+					<li class="breadcrumb-item" style="text-transform: capitalize;">
+						<span class="">
+							Início</span>
+					</li>
+					<?php endif; ?>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
+<?php endif; ?>

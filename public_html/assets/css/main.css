@@ -1,0 +1,153 @@
+/* cyrillic-ext */
+@font-face {
+	font-family: 'west';
+	src: url(../fonts/dustwest/dustwest.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'nashville';
+	src: url('../fonts/nashville/nashville.ttf');
+}
+
+body {
+	direction: ltr;
+	/* background-color: #e5e9ec; */
+	background-color: #D9D9D9;
+	/* background-color: #fff; */
+	color: #6f7b8a;
+	font-family: 'muli';
+	font-size: 13px;
+	padding: 0px !important;
+	margin: 0px !important;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: normal;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	background-image: url('../melhoresdocariri/img/melhoresdocariri-transparent.png');
+	background-size: auto 100%;
+	background-position: center 10px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.inline {
+	display: inline-block !important;
+}
+
+.semi-bold {
+	font-weight: 600 !important;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.muted {
+	color: #b6bfc5 !important;
+}
+
+.container.container--fluid {
+	width: 100%;
+	max-width: 100% !important;
+	margin: 0 auto;
+	padding: 0 .5rem;
+}
+
+#toast-container {
+	top: 10% !important;
+	right: 25% !important;
+	bottom: auto !important;
+	left: 30% !important;
+}
+
+footer {
+	text-align: center;
+}
+
+footer span font {
+	display: block;
+}
+
+@media only screen and (min-width: 993px) {
+	footer {
+		padding-left: 0px;
+		text-align: left
+	}
+	footer span font {
+		display: inline;
+	}
+}
+
+.font-west {
+	font-family: 'west' !important;
+}
+
+/*----------------------------------------
+ MAIN
+ -----------------------------------------*/
+#main {
+	padding-left: 0px !important;
+}
+
+/** input-field **/
+
+/* Logo */
+.logo-wrapper, .search-button {
+    line-height: normal !important;
+    margin: 0px 0px !important;
+    height: inherit !important;
+}
+
+.brand-logo {
+	padding: 8px 15px 5px 15px;
+	vertical-align: initial;
+}
+
+.navbar ul a {
+	vertical-align: inherit;
+}
+
+/*----------------------------------------
+ Sidenav
+ -----------------------------------------*/
+
+.side-nav {
+	width: 300px;
+}
+
+/*.sidenav li a.active, .sidenav li a.active i {
+ background: none;
+ box-shadow: none;
+ color: #3f51b5;
+ }*/
+
+/*----------------------------------------
+ CONTAINER
+ -----------------------------------------*/
+@media only screen and (min-width: 1770px) {
+	.container {
+		width: 50%;
+	}
+}
+
+/*----------------------------------------
+ Breadcrumb
+ ------------------------------------------*/
+.breadcrumb:before {
+	color: inherit;
+}
+
+.breadcrumb i {
+	line-height: inherit;
+}
+
+/*----------------------------------------
+ Footer
+ ------------------------------------------*/
+.page-footer .footer-copyright {
+	min-height: 0px;
+}

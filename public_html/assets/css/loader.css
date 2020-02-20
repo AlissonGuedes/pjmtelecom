@@ -1,0 +1,351 @@
+
+/*----------------------------------------
+ Pre-loader
+ ------------------------------------------*/
+#loader-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999999;
+	overflow: hidden;
+}
+
+#loader-wrapper .loader-section {
+	position: fixed;
+	top: 0;
+	width: 51%;
+	height: 100%;
+	background: #303f9f;
+	z-index: 999999;
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+}
+
+#loader-wrapper .loader-section.section-left {
+	left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+	right: 0;
+}
+
+#loader {
+	display: block;
+	position: relative;
+	left: 50%;
+	top: 50%;
+	width: 80px;
+	height: 80px;
+	margin: -40px 0 0 -40px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #3498db;
+	border-bottom-color: #3498db;
+	/*border-left-color: #3498db;*/
+	/*border-right-color: #3498db;*/
+	-webkit-animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite;
+	z-index: 999999;
+}
+
+#loader:before {
+	content: "";
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #e74c3c;
+	border-bottom-color: #e74c3c;
+	/*border-left-color: #e74c3c;*/
+	/*border-right-color: #f9c922;*/
+	-webkit-animation: spin 5s linear infinite;
+	animation: spin 5s linear infinite;
+}
+
+#loader:after {
+	content: "";
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
+	border-radius: 50%;
+	border: 3px solid transparent;
+	border-top-color: #f9c922;
+	border-bottom-color: #f9c922;
+	/*border-left-color: #f9c922;*/
+	/*border-right-color: #f9c922;*/
+	-webkit-animation: spin 3s linear infinite;
+	animation: spin 3s linear infinite;
+}
+
+#loader-logo {
+	display: block;
+	position: absolute;
+	left: 48%;
+	top: 46%;
+	background: url("../../images/avatar/avatar-2.png") no-repeat center center;
+	z-index: 999999;
+}
+
+.lds-roller {
+	display: inline-block;
+	position: fixed;
+	width: 64px;
+	height: 64px;
+	z-index: 9999999;
+	top: 50%;
+	left: 50%;
+	margin-top: -32px;
+	margin-left: -32px;
+	overflow: hidden;
+}
+
+.lds-roller div {
+	animation: lds-roller 1.5s cubic-bezier(0.5, -0.5, 0.5, 0.1) infinite;
+	transform-origin: 32px 32px;
+}
+
+.lds-roller div:after {
+	content: " ";
+	display: block;
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: inherit;
+	margin: -3px 0 0 -3px;
+}
+
+.lds-roller div:nth-child(1) {
+	animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+	top: 50px;
+	left: 50px;
+}
+
+.lds-roller div:nth-child(2) {
+	animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+	top: 54px;
+	left: 45px;
+}
+
+.lds-roller div:nth-child(3) {
+	animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+	top: 57px;
+	left: 39px;
+}
+
+.lds-roller div:nth-child(4) {
+	animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+	top: 58px;
+	left: 32px;
+}
+
+.lds-roller div:nth-child(5) {
+	animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+	top: 57px;
+	left: 25px;
+}
+
+.lds-roller div:nth-child(6) {
+	animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+	top: 54px;
+	left: 19px;
+}
+
+.lds-roller div:nth-child(7) {
+	animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+	top: 50px;
+	left: 14px;
+}
+
+.lds-roller div:nth-child(8) {
+	animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+	top: 45px;
+	left: 10px;
+}
+
+@keyframes lds-roller {
+0% {
+transform: rotate(0deg);
+}
+100% {
+transform: rotate(360deg);
+}
+}
+
+@-webkit-keyframes spin {
+0% {
+-webkit-transform: rotate(0deg);
+-ms-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+100% {
+-webkit-transform: rotate(360deg);
+-ms-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+
+@keyframes spin {
+0% {
+-webkit-transform: rotate(0deg);
+-ms-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+100% {
+-webkit-transform: rotate(360deg);
+-ms-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+
+.loaded #loader-wrapper {
+	visibility: hidden;
+	-webkit-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	transform: translateY(-100%);
+	-webkit-transition: all 0.3s 1s ease-out;
+	transition: all 0.3s 1s ease-out;
+}
+
+.loaded #loader-wrapper .loader-section.section-left {
+	-webkit-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	transform: translateX(-100%);
+	-webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+	-webkit-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+	transform: translateX(100%);
+	-webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded #loader {
+	/*opacity: 0;
+	 -webkit-transition: all 0.3s ease-out;
+	 transition: all 0.3s ease-out;*/
+}
+
+.progress {
+	background-color: rgba(255, 64, 129, 0.22);
+}
+
+/* JavaScript Turned Off */
+.no-js #loader-wrapper {
+	display: none;
+}
+
+.hidden {
+	overflow: hidden !important;
+}
+
+.hidden-x {
+	overflow-x: hidden !important;
+	overflow-y: auto;
+}
+
+.hidden-y {
+	overflow-x: auto;
+	overflow-y: hidden !important;
+}
+
+/** PACE JS **/
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.pace-inactive {
+	display: none;
+}
+
+.pace .pace-progress {
+	background: linear-gradient(90deg, #d500f9, #ffa000) !important;
+	position: fixed;
+	z-index: 9999999;
+	top: 0;
+	right: 100%;
+	width: 100%;
+	height: 4px;
+}
+
+/** Spinner **/
+button .preloader-wrapper.small {
+	width: 21px;
+	height: 21px;
+	top: 0px;
+}
+
+button .circle-clipper .circle {
+	/*border-color: #9f9f9f;*/
+	border-color: #ffffff;
+	border-width: 2px;
+}
+
+.btn[disabled],
+.btn:disabled,
+.btn.disabled,
+button[disabled],
+button:disabled,
+button.disabled,
+input[disabled],
+input:disabled,
+input.disabled,
+textarea[disabled],
+textarea:disabled,
+textarea.disabled {
+	cursor: not-allowed;
+}
+
+/** ZOOM Troca de página **/
+.zoom-fade-leave-to {
+    transform: scale(1.03);
+    opacity: 0;
+}
+
+.zoom-fade-enter {
+    transform: scale(0.97);
+    opacity: 0;
+}
+
+.zoom-fade-enter-active, .zoom-fade-leave-active {
+    transition: transform 0.35s ease 0s, opacity 0.28s ease-in-out 0s, -webkit-transform 0.35s ease 0s;
+}

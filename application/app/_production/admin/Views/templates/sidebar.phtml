@@ -1,0 +1,153 @@
+<?php if ( is_logged() ) : ?>
+<!-- START LEFT SIDEBAR NAV-->
+<aside id="left-sidebar-nav">
+	
+	<ul id="slide-out" class="sidenav side-nav fixed leftside-navigation">
+		<li class="user-details cyan darken-2 hide-on-med-and-down">
+			<div class="row">
+				<div class="col s8 m8 l8">
+					<div class="">
+						<a href="javascript:void(0);" class="btn-flat white-text profile-btn dropdown-trigger" data-target="profile-dropdown-nav">
+							<span><?= $_SESSION[USERDATA]['nome']; ?></span>
+							<i class="material-icons right">keyboard_arrow_down</i>
+						</a>
+					</div>
+					<div class="">
+						<ul id="profile-dropdown-nav" class="dropdown-content" tabindex="0">
+							<li tabindex="0">
+								<a href="<?= base_url(); ?>logout" target="_self" class="grey-text text-darken-1 waves-effect">
+									<i class="material-icons">keyboard_tab</i> Sair
+								</a>
+							</li>
+						</ul>
+						<p class="user-roal">
+							<?= $_SESSION[USERDATA]['grupo']; ?>
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row hide">
+				<div class="col s12">
+					<a href="javascript:void(0);" class="profile-btn white-text dropdown-trigger" data-target="cidades-dropdown">
+						<span>Campina Grande</span>
+						<i class="material-icons right">keyboard_arrow_down</i>
+					</a>
+				</div>
+				<!-- cidades-dropdown -->
+				<ul class="dropdown-content" id="cidades-dropdown" tabindex="0">
+					<li tabindex="0">
+						<a class="grey-text text-darken-2" href="user-profile-page.html">
+							Profile
+							<span class="new badge red">
+								2
+							</span>
+						</a>
+					</li>
+					<li tabindex="0">
+						<a class="grey-text text-darken-2" href="app-contacts.html">
+							Contacts
+						</a>
+					</li>
+					<li tabindex="0">
+						<a class="grey-text text-darken-2" href="page-faq.html">
+							FAQ
+						</a>
+					</li>
+					<li class="divider" tabindex="-1"></li>
+					<li tabindex="0">
+						<a class="grey-text text-darken-2" href="user-login.html">
+							Logout
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="row hide">
+				<div class="col s12">
+					<a href="javascript:void(0);" class="profile-btn white-text dropdown-trigger" data-target="cidades-dropdown">
+						<span>Malvinas</span>
+						<i class="material-icons right">keyboard_arrow_down</i>
+					</a>
+				</div>
+			</div>
+		</li>
+		<li class="no-padding">
+			<ul class="collapsible" data-collapsible="accordion">
+				<li class="bold">
+					<a href="<?= base_url(); ?>dashboard" class="waves-effect waves-light">
+						<i class="material-icons">pie_chart_outlined</i>
+						<span class="nav-text">
+							Dashboard
+						</span>
+					</a>
+				</li>
+				<li class="bold">
+					<a href="<?= base_url(); ?>banners" class="waves-effect waves-light">
+						<i class="material-icons">wallpaper</i>
+						<span class="nav-text">
+							Banners
+						</span>
+					</a>
+				</li>
+				<li class="bold">
+					<a href="<?= base_url(); ?>planos" class="waves-effect waves-light">
+						<i class="material-icons">attach_money</i>
+						<span class="nav-text">
+							Planos
+						</span>
+					</a>
+				</li>
+				<li class="bold">
+					<a href="<?= base_url(); ?>comunicados" class="waves-effect waves-light">
+						<i class="material-icons">email</i>
+						<span class="nav-text">
+							Comunicados
+						</span>
+					</a>
+				</li>
+				<?php if ( $_SESSION[USERDATA]['id_grupo'] <= 3) : ?>
+				<li class="bold">
+					<a href="<?= base_url(); ?>faqs" class="waves-effect waves-light">
+						<i class="material-icons">live_help</i>
+						<span class="nav-text">
+							Perguntas Frequentes
+						</span>
+					</a>
+				</li>
+				<li class="bold">
+					<a href="javascript:void(0);" class="collapsible-header waves-effect waves-cyan" tabindex="0">
+						<i class="material-icons">build</i>
+						<span class="menu-title">
+							Configurações
+						</span>
+					</a>
+					<div class="collapsible-body">
+						<ul class="collapsible collapsible-sub" data-collapsible="accordion">
+							<li>
+								<a href="<?= base_url(); ?>empresa" class="collapsible-body">
+									<i class="material-icons">radio_button_unchecked</i>
+									<span>
+										Empresa
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href="<?= base_url(); ?>usuarios" class="collapsible-body">
+									<i class="material-icons">radio_button_unchecked</i>
+									<span>
+										Usuários
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<?php endif; ?>
+			</ul>
+		</li>
+	</ul>
+	
+</aside>
+<!-- END LEFT SIDEBAR NAV-->
+
+<?php endif; ?>

@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="tela">
+        <img src="<?php echo base_path(TRUE); ?>img/tela.jpg" class="img_cem">
+    </div>
+</div>
+
+<div class="row">
+    <div class="tela_mob">
+        <img src="<?php echo base_path(TRUE); ?>img/tela_mob.jpg" class="img_cem">
+    </div>
+</div>
+
+<div class="row">
+    <form method="post" action="<?php echo base_url(); ?>">
+        <div class="col s12 m7 l5" style="margin-top: 15%">
+            <div class="col offset-l3 mt-10">
+                <div class="card blue-dark darken-1 black bg-opacity-6">
+                    <div class="card-content white-text">
+                        <div class="row">
+                            <div class="col">
+                                <div class="title_index">
+                                    <h1 class="f_title flow-text no-margin white-text">Conecte-se com a PJM Telecom</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="text_resume">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non lectus eu nibh eleifend vulputate.</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+				<div class="input-field-container">
+		                        <div class="input-field transparent">
+		                            <select name="cidade" data-searchable="true" id="select_cidades" data-minimum="0" placeholder="Informe a sua cidade" style="width: 100%;">
+		                                <option value="" selected disabled>Informe a sua cidade</option>
+		                                <?php
+		                                if ( $cidades -> numRows() > 0 ) :
+		                                    foreach ( $cidades -> result() as $cidade ) :
+		                                        echo '<option value="' . $cidade -> id . '">' . $cidade -> cidade . '</option>';
+		                                    endforeach;
+		                                endif;
+		                                ?>
+		                            </select>
+		                            <label for="cidade"></label>
+					</div>
+				</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="input-field-container">
+		                        <div class="input-field transparent">
+                                    		<select name="bairro" data-searchable="true" id="select_bairros" data-minimum="0" data-cidade="" placeholder="Informe o seu bairro" style="width: 100%;"></select>
+                                    		<label for="bairro"></label>
+                                	</div>
+				</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 mt-4 mb-2">
+                                <input type="hidden" name="acao" value="localizacao">
+                                <button type="submit" name="prosseguir" class="btn waves-effect orange waves-light right">
+                                    <i class="material-icons right">send</i>
+                                    <span>Continuar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

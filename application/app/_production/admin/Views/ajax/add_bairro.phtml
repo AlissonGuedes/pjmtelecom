@@ -1,0 +1,16 @@
+<?php
+
+$cidade = $_POST['cidade'];
+$bairro = $_POST['bairro'];
+
+$cidade_model = new \App\Models\CidadeModel;
+
+$cidades = $cidade_model -> getCidade(['tb_cidade.id' => $cidade]) -> getAll();
+
+if (isset($cidades)) {
+    foreach ($cidades as $cidade) {
+        $return = 'Cidade: ' . $cidade -> cidade;
+    }
+}
+
+echo json_encode($return);

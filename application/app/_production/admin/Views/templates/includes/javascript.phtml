@@ -1,0 +1,77 @@
+<script>
+	const MAIN			= '<?= site_url(); ?>';
+	const BASE_URL		= '<?= base_url(); ?>';
+	const CURRENT_URL	= '<?= $_SERVER['REQUEST_URI']; ?>';
+	const BASEPATH		= '<?= base_path(); ?>';
+	const PROJECT_PATH	= '<?= base_path(TRUE); ?>';
+	var element			= typeof el !== 'undefined' ? el : ['.editor', '.redactor'];
+	var items			= element.toString(); 
+</script>
+
+<!-- plugins | jQuery/Materialize -->
+<script src="<?= base_path(); ?>plugins/vendors/js/jquery.min.js"></script>
+<script src="<?= base_path(); ?>plugins/vendors/js/materializecss.js"></script>
+<script src="<?= base_path(); ?>plugins/vendors/js/prismjs.min.js"></script>
+<script src="<?= base_path(); ?>plugins/vendors/js/perfect-scrollbar.min.js"></script>
+
+<!-- plugins | Datatables -->
+<script src="<?= base_path(); ?>plugins/datatable/js/jquery.dataTables.min.js"></script>
+<script src="<?= base_path(); ?>plugins/datatable/js/datatables.responsive.min.js"></script>
+
+<!-- plugins | jquery-validate -->
+<script src="<?= base_path(); ?>plugins/jquery-validate/jquery.validate.min.js"></script>
+
+<!-- plugins | pace -->
+<script src="<?= base_path(); ?>plugins/pace/pace.min.js"></script>
+
+<!-- plugins | sweetalert -->
+<script src="<?= base_path(); ?>plugins/sweetalert/sweetalert.min.js"></script>
+
+<!-- plugins | html2pdf -->
+<script src="<?= base_path(); ?>plugins/html2pdf/html2pdf.bundle.js"></script>
+
+<!-- plugins | editor de texto -->
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css">
+<!--<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>-->
+
+<!-- plugins | formater -->
+<script src="<?= base_path(); ?>plugins/formatter/jquery.formatter.min.js"></script>
+
+<!-- plugins | select2 -->
+<script src="<?= base_path(); ?>plugins/select2/select2.min.js"></script>
+<script src="<?= base_path(); ?>plugins/select2/select2-materialize.js"></script>
+
+<!-- plugins | nouislider -->
+<script src="<?= base_path(); ?>plugins/nouislider/nouislider.js"></script>
+
+<!-- plugins | magnific-popup -->
+<script src="<?= base_path(); ?>plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- plugins | imagesloaded -->
+<script src="<?= base_path(); ?>plugins/imagesloaded/imagesloaded.pkgd.min.js"></script>
+
+<!-- plugins | form -->
+<script src="<?= base_path(); ?>plugins/form.js"></script>
+
+<!-- scripts | custom -->
+<script src="<?= base_path(); ?>js/classes/Plugins.js"></script>
+<script src="<?= base_path(); ?>js/classes/Forms.js"></script>
+<script src="<?= base_path(); ?>js/classes/URI.js"></script>
+<script src="<?= base_path(); ?>js/classes/Menu.js"></script>
+
+<!-- scripts | requireJs -->
+<script src="<?= base_path(); ?>plugins/requirejs/require.js" data-main="<?= base_path(); ?>js/require.js"></script>
+
+<!-- scripts | base_site -->
+<script src="<?= base_path(); ?>js/require.js"></script>
+<script src="<?= base_path(); ?>js/lib/materialize.js"></script>
+<script src="<?= base_path(); ?>js/lib/functions.js"></script>
+<script src="<?= base_path(); ?>js/lib/datatable.js"></script>
+<script src="<?= base_path(); ?>js/lib/init.js"></script>
+<script src="<?= base_path(); ?>js/lib/app.js"></script>
+<script src="<?= base_path(); ?>js/apps.js"></script>
+
+<script src="<?= base_path(); ?>js/core.js"></script>
+
+<!-- scripts | outros -->
+<!-- <script src="<?= base_path(); ?>site/js/....js"></script> -->

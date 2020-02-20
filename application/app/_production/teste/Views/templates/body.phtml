@@ -1,0 +1,24 @@
+<?php
+if ( configuracoes('publicado') === '1' )
+{
+	if ( configuracoes('manutencao') === '1' )
+	{
+		require_once (VIEWPATH . 'templates' . DS . 'bloqueios' . DS . 'manutencao.phtml');
+	}
+	else
+	{
+		require_once ('sidebar.phtml');
+		echo '<div id="content" class="row">';
+		require_once ('header.phtml');
+		echo '<div id="main">';
+		require_once ($this -> renderVars['file']);
+		require_once ('footer.phtml');
+		echo '</div>';
+		echo '</div>';
+	}
+}
+else
+{
+	require_once (VIEWPATH . 'templates' . DS . 'bloqueios' . DS . 'indisponivel.phtml');
+}
+?>

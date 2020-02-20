@@ -1,0 +1,151 @@
+<?php if ( $banners -> numRows() > 0 ) : ?>
+<div class="slider mb-3">
+    <ul class="slides">
+        <?php foreach( $banners -> result() as $banner ) :?>
+        <li>
+            <img src="<?= base_path() . $banner -> imagem; ?>" alt="">
+            <?php if ( !empty($banner -> descricao) || !empty($banner -> titulo) ) :?>
+            <div class="caption left-align">
+                <?php if ( !empty($banner -> titulo) ) :?>
+                <h3><?= $banner -> titulo; ?></h3>
+                <?php endif; ?>
+                <?php if ( !empty($banner -> descricao) ) :?>
+                <h5 class="light grey-text text-lighten-3">
+                    <?= $banner -> descricao; ?>
+                </h5>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php else : ?>
+<div class="row">
+    <div class="col mt-10" style="margin-bottom: 30px;">
+    </div>
+</div>
+<?php endif; ?>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m9">
+            <?php if ( $tipo_planos -> numRows() > 0 ) :?>
+            <div class="row">
+                <div class="col s12">
+                    <div class="title">Conheça nossos planos</div>
+                    <?php foreach ( $tipo_planos -> result() as $tipo ) :?>
+                    <?php $color = $tipo -> id == 2 ? 'blue' : ''; ?>
+                    <div class="tag_plan mt-3 mb-2">Plano <?= trim($tipo -> tipo); ?></div>
+                    <?php
+                    $plano_model = new App\Models\PlanoModel();
+					$planos = $plano_model -> getPlano(array('T.id' => $tipo -> id));
+                    ?>
+                    <?php if ( $planos -> numRows() > 0 ) : ?>
+                    <div class="row">
+                        <?php foreach ( $planos -> result() as $plano ) :?>
+                        <div class="col m6 s12">
+                            <div class="card z-depth-2 planos">
+                                <div class="card-content">
+                                    <div class="card-title activator grey-text text-darken-4">
+                                        <div class="box_plan <?= $color; ?>">
+                                            <div class="tipo_plano f_title <?= $color; ?>">
+                                                <?= $plano -> titulo; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                    	<div>
+											<p class="box_obs muted center-align">Somente Internet</p>
+											<div class="box_valor">
+												<span class="muted">Custo Mensal</span>
+												<h3 class="box_valor"><small>R$</small><span>45,00</span></h3>
+												<span class="muted">Instalação: 10x 15,00</span>
+											</div>                                	
+                                    	</div>
+                                    </div>
+                                	<div class="card-footer">
+                                        <a href="javascript:void(0);" class="activator">
+                                            Mais detalhes
+                                            <i class="material-icons right">keyboard_arrow_down</i>
+                                        </a>
+                                	</div>
+                                </div>
+                                <div class="card-reveal">
+                                    <div class="card-title">
+                                        <i class="material-icons right">close</i>
+                                        <div class="valor_plano">
+                                        	<span class="muted">internet</span>
+                                        	<!-- <span><i class="material-icons center-align">wifi</i></span> -->
+                                        	<span><?= $plano -> titulo; ?></span>
+                                        </div>
+                                    </div>
+                                    <?php if ( ! empty($plano -> descricao) ) :?>
+									<div class="card-body">
+										<div class="divider mt-0"></div>
+										<div class="row">
+											<div class="col s7 left-align"><h3>Custo Mensal</h3></div>
+											<div class="col s5 right-align"><h3>R$ <?= number_format($plano -> valor_mensal, 2, ',', '.'); ?></h3></div>
+										</div>
+										<div class="row">
+											<div class="col s7 left-align"><span>Taxa de Instalação</span></div>
+											<div class="col s5 right-align"><span>R$ <?= number_format($plano -> taxa_instalacao, 2, ',', '.'); ?></span></div>
+										</div>
+										<div class="divider dashed"></div>
+										<div class="row">
+											<div class="col s7 left-align"><h3>Total 12 Meses</h3></div>
+											<?php $media_custo_mensal = $plano -> valor_mensal * 12; ?>
+											<div class="col s5 right-align"><h3>R$ <?= number_format($media_custo_mensal, 2, ',', '.'); ?></h3></div>
+										</div>
+										<div class="row">
+											<div class="col s7 left-align"><span>Média do Custo/Mês**</span></div>
+											<div class="col s5 right-align"><span>R$ <?= number_format($media_custo_mensal / 12, 2, ',', '.'); ?></span></div>
+											<div class="col s12"><small class="muted">**Soma dos custos mensais / 12 </small></div>
+										</div>
+										<div class="divider"></div>
+										<div class="row">
+											<div class="col s12 left-align"><h3>Fidelidade</h3></div>
+											<div class="col s7 left-align"><span>Tempo de fidelidade</span></div>
+											<div class="col s5 right-align"><span class="bold"><?= $plano -> tempo_fidelidade; ?>
+											<?= $plano -> tempo_fidelidade == 0 ? 'Indefinido' : ( $plano -> tempo_fidelidade == 1 ? 'Mês' : 'Meses' ); ?></span></div>
+										</div>
+										<div class="row">
+											<div class="col s7 left-align"><span>Taxa de cancelamento</span></div>
+											<div class="col s5 right-align"><span class="bold">R$ <?= number_format($plano -> taxa_cancelamento, 2, ',', '.'); ?></span></div>
+										</div>
+										<div class="divider"></div>
+										<div class="row">
+											<div class="col s12 left-align"><h3>Velocidade</h3></div>
+											<div class="col s12 left-align">
+												<span>Internet: </span>
+												<span><?= $plano -> velocidade_download; ?>MB</span>
+											</div>
+											<div class="col s12 left-align">
+												<span>Upload: </span>
+												<span><?= $plano -> velocidade_upload; ?>MB</span>
+											</div>
+											<div class="col s12 left-align">
+												<span>Download: </span>
+												<span><?= $plano -> velocidade_download; ?>MB</span>
+											</div>
+										</div>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
+        <div class="col s12 m3">
+            <div class="row">
+                <?php include VIEWPATH . DS . 'right.php'; ?>
+            </div>
+        </div>
+    </div>
+</div>

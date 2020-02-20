@@ -1,0 +1,55 @@
+<?php $c=null;$b=null;if ( isset($_COOKIE['cidade']) && isset($_COOKIE['bairro']) ) :
+?>
+<header class="page-topbar" id="header"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<div class="navbar navbar-fixed">
+		<nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-dark indigo no-shadow">
+			<a class="sidenav-trigger white btn-floating btn-small waves-effect waves-light hide-on-large-only right" href="#" data-target="slide-out" style="top: 4px; right: 15px;"><i class="material-icons indigo-text"> menu </i></a>
+			<div class="container" style="margin-bottom: -1px;">
+				<div class="btn-location input-field transparent">
+					<button id="btn_location" class="btn btn-flat modal-trigger waves-effect waves-light" data-href="<?=base_url(); ?>localizacao" data-type="html" data-toggle="modal" data-target="modal-location" data-tooltip="Mudar Localização" data-position="bottom">
+						<i class="material-icons left white-text"> location_on </i>
+							<span class="white-text truncate" id="usr_location">
+								<?= configuracoes('bairro', 'tb_bairro', ['id' => $_COOKIE['bairro']]) . ','; ?>
+								<?= configuracoes('cidade', 'tb_cidade', ['id' => $_COOKIE['cidade']]) . ' - '; ?>
+								<?= configuracoes('uf', 'tb_cidade', ['id' => $_COOKIE['cidade']]); ?>
+							</span>
+					</button>
+				</div>
+			</div>
+		</nav>
+		<nav class="orange" id="horizontal-nav">
+			<div class="nav-wrapper">
+				<div class="container">
+					<ul class="left" id="ul-horizontal-nav" data-menu="menu-navigation">
+						<?php
+						require (VIEWPATH . 'templates' . DS . 'menu.phtml');
+						?>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="hide-on-med-and-down">
+    	<div class="area_logo">
+    		<div class="fone">
+    			<div class="txt_central_att">
+    				Central de Atendimento:
+    			</div>
+    			<div class="n_phones f_title">
+    				<?= configuracoes('telefone'); ?>
+    				<br>
+    				<?php if ( configuracoes('celular') ) : ?>
+    					<img src="<?=base_path(TRUE); ?>img/w.png" class="ico_whats" alt="">
+    					<?= configuracoes('celular'); ?>
+    				<?php endif; ?>
+    			</div>
+    		</div>
+    		<div class="logo_m">
+    			<img src="<?=base_path() . configuracoes('logomarca'); ?>" class="logo_m_img" alt="">
+    		</div>
+    	</div>
+    	<div class="robozinho"></div>
+    </div>
+</header>
+<div id="modal-location" class="modal modal-fixed-footer modal-fixed-header"></div>
+<?php endif; ?>

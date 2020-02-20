@@ -1,0 +1,21 @@
+<?php if (ENVIRONMENT === 'development') : ?>
+
+<?php if (isset($_SESSION[USERDATA])) : ?>
+<br>
+<br>
+<?php endif; ?>
+
+<!--
+<footer class="page-footer footer footer-fixed footer-static footer-dark yellow darken-3 navbar-border navbar-shadow padding-1" style="z-index: 1;">
+
+             <?= MENSAGEM_AMBIENTE; ?>
+
+</footer>
+-->
+
+<style>
+    footer.page-footer button.toast-action {
+        display: none;
+    }
+</style>
+<?php endif; ?>

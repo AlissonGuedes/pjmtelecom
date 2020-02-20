@@ -1,0 +1,283 @@
+/*--------------------------------------
+ Data Tables
+ ---------------------------------------*/
+table, th, td {
+	border: none;
+}
+
+table {
+	width: 100%;
+	display: table;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+tr {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+th {
+	color: #616161;
+}
+
+td, th {
+	padding: 15px 5px;
+	display: table-cell;
+	text-align: left;
+	vertical-align: middle;
+	border-radius: 2px;
+}
+
+table span.badge {
+	display: inline-block;
+	float: none;
+	margin-left: auto;
+}
+
+/******************************************************************************/
+
+table.striped tr {
+	border-bottom: none;
+}
+
+table.striped > tbody > tr:nth-child(even) {
+	background-color: rgba(0, 0, 0, 0.000);
+}
+
+table.striped > tbody > tr:nth-child(odd) {
+	background-color: rgba(0, 0, 0, 0.012);
+}
+
+table.striped > tbody > tr > td {
+	border-radius: 0;
+}
+
+table.bordered, table.bordered th, table.bordered tr td {
+	border-collapse: collapse;
+	border: 1px solid #cfd8dc;
+}
+
+/* table tr td[data-clickable="true"] { */
+table tr td {
+	cursor: pointer;
+}
+
+table.bordered thead th {
+	border-bottom-color: #cfd8dc;
+	border-left: none;
+	border-right: none;
+}
+
+table.bordered, table.bordered tr td {
+	border: 1px solid #cfd8dc;
+}
+
+table.datatable > tbody > tr {
+	-webkit-transition: background-color .25s ease;
+	transition: background-color .25s ease;
+}
+
+table.datatable tbody > tr:hover {
+	background-color: rgba(0, 0, 0, 0.024)
+}
+
+table.centered thead tr th, table.centered tbody tr td {
+	text-align: center;
+}
+
+table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+	background-color: rgba(0, 0, 0, 0.036);
+}
+
+table.dataTable tbody > tr.selected:hover, table.dataTable tbody > tr > .selected:hover {
+	background-color: rgba(0, 0, 0, 0.048);
+}
+
+.dataTables_scroll .dataTables_scrollHead th, .dataTables_wrapper.no-footer .dataTables_scrollBody {
+	border-bottom: 1px solid #cfd8dc;
+}
+
+.dataTables_scroll .dataTables_scrollHead th, .dataTables_scroll .dataTables_scrollBody td {
+	border-radius: inherit;
+	background-color: inherit;
+}
+
+.dataTables_scroll .dataTables_scrollBody table {
+	margin-top: 0 !important;
+}
+
+/** Filter Input **/
+.dataTables_wrapper .dataTables_filter {
+	display: none;
+}
+
+/* .dataTables_wrapper .dataTables_length {
+	left: 360px;
+	top: 8px;
+	position: absolute;
+} */
+
+.dataTables_wrapper .dataTables_length {
+    left: 50%;
+    top: 20px;
+    position: fixed;
+    z-index: 1004;
+    margin: auto;
+    text-align: center;
+    margin-left: -250px;
+    width: 500px;
+    overflow: hidden;
+}
+
+.dataTables_wrapper .dataTables_length label {
+	font-size: 1rem;
+	color: #fff;
+}
+
+.dataTables_wrapper .dataTables_info {
+	color: #616161;
+	clear: none;
+}
+
+.dataTables_wrapper {
+	margin-right: .35rem;
+	margin-bottom: .75rem;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+	padding-top: 0px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button, .dataTables_wrapper .paginate_button {
+	margin-top: .25rem;
+	padding: .25em .65em;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .paginate_button.current, .dataTables_wrapper .paginate_button.current:hover {
+	color: #fff !important;
+	border: 1px solid #2196f3;
+	border-radius: 6px;
+	background: #2196f3;
+	-webkit-box-shadow: 0 0 8px 0 #2196f3;
+	box-shadow: 0 0 8px 0 #2196f3;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .paginate_button:hover {
+	color: #fff !important;
+	border: 1px solid #2196f3;
+	border-radius: 6px;
+	background: #2196f3;
+	-webkit-box-shadow: 0 0 8px 0 #2196f3;
+	box-shadow: 0 0 8px 0 #2196f3;
+}
+
+.muted {
+	color: #b6bfc5 !important;
+}
+
+/******************************************************************************/
+
+@media only screen and (max-width: 992px) {
+
+	table.responsive-table {
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+		display: block;
+		position: relative;
+		/* sort out borders */
+	}
+
+	table.responsive-table td:empty:before {
+		content: '\00a0';
+	}
+
+	table.responsive-table th, table.responsive-table td {
+		margin: 0;
+		vertical-align: top;
+	}
+
+	table.responsive-table th {
+		text-align: left;
+	}
+
+	table.responsive-table thead {
+		display: block;
+		float: left;
+	}
+
+	table.responsive-table thead tr {
+		display: block;
+		padding: 0 10px 0 0;
+	}
+
+	table.responsive-table thead tr th::before {
+		content: "\00a0";
+	}
+
+	table.responsive-table tbody {
+		display: block;
+		width: auto;
+		position: relative;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+
+	table.responsive-table tbody tr {
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	table.responsive-table th {
+		display: block;
+		text-align: right;
+	}
+
+	table.responsive-table td {
+		display: block;
+		min-height: 1.25em;
+		text-align: left;
+	}
+
+	table.responsive-table tr {
+		border-bottom: none;
+		padding: 0 10px;
+	}
+
+	table.responsive-table thead {
+		border: 0;
+		border-right: 1px solid rgba(0, 0, 0, 0.12);
+	}
+
+	table.bordered, table.bordered tr, table.bordered tr th, table.bordered tr td {
+		border: none;
+	}
+}
+
+@media only screen and (min-width: 993px) {
+
+	th.mini-cell, td.mini-cell {
+		width: 1%;
+		min-width: 1%;
+		max-width: 1%;
+	}
+
+	th.small-cell, td.small-cell {
+		min-width: 5%;
+		max-width: 5%;
+		width: 5%;
+	}
+
+	th.medium-cell, td.medium-cell {
+		min-width: 15%;
+		max-width: 15%;
+		width: 15%;
+	}
+
+	th.big-cell, td.big-cell {
+		min-width: 20%;
+		max-width: 20%;
+		width: 20%;
+	}
+
+}

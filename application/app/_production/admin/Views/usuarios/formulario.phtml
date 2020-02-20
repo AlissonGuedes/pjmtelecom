@@ -1,0 +1,387 @@
+<form action="<?php echo base_url(); ?>usuarios" method="post" enctype="multipart/form-data" id="frm-usuario" autocomplete="off">
+    <!-- modal-content -->
+    <div class="modal-content no-padding">
+
+    	<!-- modal-header -->
+    	<div class="modal-header">
+
+    		<!-- tabs -->
+    		<ul class="tabs tabs-fixed-width z-depth-1">
+    			<li class="tab">
+    				<a href="#tab_usuario" class="active">
+    					Usuário
+    				</a>
+    			</li>
+    			<li class="tab">
+    				<a href="#tab_cidade">
+    					Cidades
+    				</a>
+    			</li>
+    		</ul>
+    		<!--/tabs -->
+
+    	</div>
+    	<!--/modal-header -->
+
+    	<!-- modal-body -->
+    	<div class="modal-body no-padding">
+
+    		<!-- row -->
+    		<div class="row">
+
+    			<!-- col -->
+    			<div class="col s12 m6 offset-s0 offset-m3">
+
+    				<!-- #tab_usuario -->
+    				<div id="tab_usuario">
+
+    					<!-- usuario -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+								<input type="text" name="nome" value="<?= isset($row) ? $row -> getNome() : null; ?>" id="nome">
+								<label for="nome" class="<?= isset($row) ? 'active' : null; ?>">
+									Nome
+								</label>
+								<div class="line-ripple indigo"></div>
+							</div>
+							<div class="helper-line">
+							    <div class="helper-text"></div>
+							    <div class="helper-counter"></div>
+							</div>
+						</div>
+    					<!--/usuario -->
+
+    					<!-- email -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+							<input type="email" name="email" class="" value="<?= isset($row) ? $row -> getEmail() : null; ?>" id="email">
+							<label for="email" class="<?= isset($row) ? 'active' : null; ?>">
+								E-mail
+							</label>
+							<div class="line-ripple indigo"></div>
+						</div>
+						<div class="helper-line">
+							    <div class="helper-text"></div>
+							    <div class="helper-counter"></div>
+							</div>
+						</div>
+    					<!--/email -->
+
+    					<!-- login -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+							<input type="text" name="login" value="<?= isset($row) ? $row -> getLogin() : null; ?>" id="login">
+							<label for="login" class="<?= isset($row) ? 'active' : null; ?>">
+								Login
+							</label>
+							<div class="line-ripple indigo"></div>
+						</div>
+						<div class="helper-line">
+							    <div class="helper-text"></div>
+							    <div class="helper-counter"></div>
+							</div>
+						</div>
+    					<!--/login -->
+
+    					<!-- senha -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+							<input type="password" name="senha" class="" value="" id="senha">
+							<label for="senha" class="">
+								Senha
+							</label>
+							<div class="line-ripple indigo"></div>
+						</div>
+						<div class="helper-line">
+							    <div class="helper-text"></div>
+							    <div class="helper-counter"></div>
+							</div>
+						</div>
+    					<!--/senha -->
+
+    					<!-- tipo -->
+    					<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+								<select name="tipo" data-selected="<?= isset($row) ? $row -> getIdGrupo() : NULL; ?>">
+									<option value="" <?= ! isset($row) ? 'selected="selected"' : NULL; ?> disabled="disabled">Informar grupo</option>
+
+									<?php if ( isset($grupos) ): ?>
+									<?php	foreach($grupos as $option) : ?>
+
+										<?php $id = (int)$option -> id; ?>
+
+									<option value="<?= $id; ?>"
+										<?= isset($row) && $row -> getIdGrupo() === $id || count($grupos) == 1 ? 'selected="selected"' : NULL; ?>
+									> <?= $option -> grupo; ?> </option>
+
+									<?php	endforeach; ?>
+									<?php endif; ?>
+								</select>
+								<label for="tipo" class="<?= isset($row) ? '' : null; ?>">
+									Informar grupo
+								</label>
+								<div class="line-ripple indigo"></div>
+							</div>
+							<div class="helper-line">
+								<div class="helper-text"></div>
+								<div class="helper-counter"></div>
+							</div>
+						</div>
+    					<!--/tipo -->
+
+    					<!-- Informar Supervisor -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+							<?php
+							$checked = null;
+							if ( isset($row) && $row -> getIdGestor() !== NULL )
+								$checked = 'checked="checked"';
+							?>
+								<div class="switch font-weight-600 left">
+									<label for="informar_gestor" class="left">
+										Informar Supervisor
+									</label>
+									<label class="indigo right">
+										<input type="checkbox"
+											   name="informar_gestor"
+											   class="right"
+											   id="informar_gestor"
+											   value="1"
+											   <?= $checked; ?>>
+										<span class="lever right"></span>
+									</label>
+								</div>
+							</div>
+							<div class="helper-line">
+							    <div class="helper-text"></div>
+							    <div class="helper-counter"></div>
+							</div>
+						</div>
+    					<!--/Supervisor -->
+
+    					<!-- tipo -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+								<?php
+								$disabled = 'disabled="disabled"';
+								if ( isset($row) && $row -> getIdGestor() !== NULL )
+									$disabled = NULL;
+								?>
+								<select name="gestor" id="gestor"
+									data-selected="<?= isset($row) ? $row -> getIdGestor() : NULL; ?>"
+									<?= $disabled ?>>
+
+									<option value="" <?= ! isset($row) ? 'selected="selected"' : NULL; ?> disabled="disabled">Nenhum</option>
+
+									<?php if ( isset($gestor) ): ?>
+									<?php	foreach($gestor as $option) : ?>
+
+										<?php $id = (int)$option -> id; ?>
+
+									<option value="<?= $id; ?>"	<?= isset($row) && $row -> getIdGestor() === $id ? 'selected="selected"' : NULL; ?>> <?= $option -> nome; ?> </option>
+
+									<?php	endforeach; ?>
+									<?php endif; ?>
+								</select>
+							</div>
+							<div class="helper-line">
+							    <div class="helper-text"></div>
+							    <div class="helper-counter"></div>
+							</div>
+						</div>
+    					<!--/tipo -->
+
+						<!-- status -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+								<?php
+                                $checked = 'checked="checked"';
+                                if (isset($row) && $row -> getStatus() === '0') {
+                                    $checked = null;
+                                }
+                                ?>
+								<div class="switch font-weight-600">
+									<label for="status"
+										   class="">
+										Exibir
+									</label>
+									<label class="indigo right">
+										<input type="checkbox"
+											   name="status"
+											   class="right"
+											   id="status"
+											   value="1"
+											   <?= $checked; ?>>
+										<span class="lever">
+										</span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<!--/status -->
+
+    					<!-- enviar_email -->
+						<div class="input-field-container">
+							<div class="input-field transparent indigo-text">
+							<div class="switch font-weight-600 left">
+								<label for="enviar_email" class="left">
+									Notificar o usuário por e-mail
+								</label>
+								<label class="indigo right">
+										<input type="checkbox"
+											   name="enviar_email"
+											   class="right"
+											   id="status"
+											   value="1">
+									<span class="lever right">
+									</span>
+								</label>
+							</div>
+						</div>
+						<div class="helper-line">
+							    <div class="helper-text"></div>
+							    <div class="helper-counter"></div>
+							</div>
+						</div>
+    					<!--/enviar_email -->
+
+    				</div>
+    				<!--/#tab_usuario -->
+                    
+                    <!-- #tab_cidade -->
+    				<div id="tab_cidade">
+    					<!-- input-field -->
+					    <div class="input-field-container">
+					        <div class="input-field transparent">
+    					    	<label>
+    						    	Atribuir Cidades ou Bairros:
+    							</label>
+								<br><br>
+								<?php
+								// $usuarios_bairros = new \App\Models\UsuarioModel();
+								if ( isset($cidades) )
+								{
+
+									$c = null;
+									$checked = null;
+									$selected = null;
+									$disabled = null;
+
+									foreach ( $cidades as $cidade )
+									{
+										$c        = isset($row) ? $usuarios -> getUsuarioBairro(['id_usuario' => $row -> getId(), 'P.id_cidade' => $cidade -> id]) -> limit(1) -> getRow() : null;
+										$checked  = isset($row) && ! is_null($c) && $c -> id_cidade == $cidade -> id ? 'checked="checked"' : null;
+										$selected = isset($row) && ! is_null($c) && $c -> id_cidade == $cidade -> id ? 'selected' : null;
+								?>
+								<table id="cidade_<?= $cidade -> id; ?>" class="table striped highlight bulk_action window--table bordered">
+									<thead>
+										<tr class="<?= $selected; ?>">
+											<th class="<?= $selected; ?> mini-cell" colspan="2">
+												<label>
+													<input type="checkbox" <?= $checked; ?> id="selectAllBairros_<?= $cidade -> id; ?>">
+													<span>Cidade: <?= $cidade -> cidade; ?></span>
+												</label>
+											</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+
+										$all_bairros = $bairros -> getBairroUsuario(['id_cidade' => $cidade -> id]) -> getAll();
+										if ( isset($all_bairros) )
+										{
+											foreach ( $all_bairros as $bairro )
+											{
+												$b        = isset($row) ? $usuarios -> getUsuarioBairro(['P.id_usuario' => $row -> getId(), 'P.id_bairro' => $bairro -> id]) -> limit(1) -> getRow() : null;
+												$checked  = isset($row) && ! is_null($b) && $b -> id_bairro == $bairro -> id ? 'checked="checked"' : null;
+												$selected = isset($row) && ! is_null($b) && $b -> id_bairro == $bairro -> id ? 'selected' : null;
+										?>
+											<tr>
+												<td class="<?= $selected; ?> small-cell" style="overflow: hidden; position: relative;">
+												    <label for="<?= $bairro -> id; ?>" class="waves-effect" style="position: absolute;width: 100%;height: 100%;top: 0px;left: 0;"></label>
+													<div class="">
+														<label>
+															<input type="checkbox" 	name="bairros[]" value="<?= $cidade -> id . ':' . $bairro -> id; ?>" <?= $checked; ?> id="<?= $bairro -> id; ?>">
+															<span><?= $bairro -> bairro; ?></span>
+														</label>
+													</div>
+												</td>
+											</tr>
+										<?php
+											}
+										}
+										?>
+									</tbody>
+								</table>
+								<?php
+									}
+								}
+								?>
+    					    </div>
+    					    <div class="helper-line">
+							    <div class="helper-text"></div>
+							    <div class="helper-counter"></div>
+							</div>
+    					</div>
+    					<!--/input-field -->
+    				</div>
+    				<!--/#tab_cidade -->
+
+    			</div>
+    			<!--/col -->
+
+    		</div>
+    		<!--/row -->
+
+    	</div>
+    	<!--/modal-body -->
+
+    	<!-- .modal-footer -->
+    	<div class="modal-footer hide">
+
+    		<button type="reset" class="modal-close waves-effect btn-flat left" data-tooltip="Cancelar" data-position="right">
+    			<i class="material-icons left hide-on-small-only">close</i>
+    			<span>
+    				Cancelar
+    			</span>
+    		</button>
+
+    		<button type="submit" name="salvar" value="salvar" class="btn btn-primary teal waves-effect waves-light btn-small" data-tooltip="Salvar" data-position="left">
+    			<i class="material-icons left hide-on-small-only">save</i>
+    			<span>
+    				Salvar
+    			</span>
+    		</button>
+
+    		<input type="hidden" name="id" value="<?= isset($row) ? $row -> getId() : null; ?>">
+    		<input type="hidden" name="action" class="action" value="salvar">
+            <input type="hidden" name="_method" value="<?= $method; ?>">
+
+    	</div>
+    	<!--/.modal-footer  -->
+
+	</div>
+	<!--/modal-content -->
+
+</form>
+
+<script>
+$(document).ready(function()
+{
+
+	$('.tabs').tabs();
+	Apps.select();
+
+	$('.window--table').find('tbody tr').find('button').each(function()
+	{
+
+		Apps.delete_item($(this).attr('id'));
+
+	});
+
+	Apps.checkAll();
+	Apps.informar_gestor();
+
+}); 
+</script>

@@ -1,0 +1,47 @@
+<?php if ( isset($_COOKIE['cidade']) ) : ?>
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m4">
+				<div class="logo_f"><img src="<?= base_path(TRUE); ?>img/logo_footer.png" class="logo_f_img" alt="">
+				</div>
+				<div class="endereco">
+					<?php echo configuracoes('endereco', 'tb_empresa') . ','; ?>
+					<?php echo configuracoes('numero', 'tb_empresa'); ?>
+					<br>
+					<?php echo configuracoes('bairro', 'tb_empresa') . ','; ?>
+					<?php echo configuracoes('cidade', 'tb_empresa'); ?>
+					-
+					<?php echo configuracoes('estado', 'tb_empresa'); ?>
+					<br>
+					CEP: <?php echo configuracoes('cep', 'tb_empresa'); ?>
+					<br>
+					<br>
+					CNPJ: <?php echo configuracoes('cnpj', 'tb_empresa'); ?>
+				</div>
+			</div>
+			<div class="col s12 m4">
+				<a href="http://187.33.238.222/central/" target="_blank"><img src="<?= base_path(TRUE); ?>img/boleto.png" class="img_segunda" alt="">
+					<br>
+					<br>
+					Seu boleto ainda não chegou?
+					<br>
+					Solicite uma 2ª via!</a>
+			</div>
+			<div class="col s12 m4">
+				<img src="<?= base_path(TRUE); ?>img/robozinho_footer.png" class="robo_footer" alt="">
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		<div class="container">
+			<div class="copy">
+				© PJM Telecom 2017. Todos os direitos reservados.
+			</div>
+			<a href="http://www.tacticweb.com.br" target="_blank">
+				<div class="tw"></div>
+			</a>
+		</div>
+	</div>
+</footer>
+<?php endif; ?>

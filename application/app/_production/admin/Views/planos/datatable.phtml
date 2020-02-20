@@ -1,0 +1,101 @@
+<?php
+
+$disabled = '';
+$disabled = ! get_permissoes($_SESSION[USERDATA], 'planos', 'remover') ? $disabled = 'disabled="disabled"' : '';
+
+$option['recordsTotal'] = $recordsTotal;
+$option['recordsFiltered'] = $recordsFiltered;
+$option['data'] = array();
+
+$status = array(
+	'0' => 'INATIVO',
+	'1' => 'ATIVO',
+	'A' => 'Agendada'
+);
+$color = array(
+	'0' => 'danger',
+	'1' => 'success',
+	'A' => 'warning'
+);
+$icon = array(
+	'0' => 'folder-o',
+	'1' => 'check',
+	'A' => 'clock-o'
+);
+$muted = array(
+	'0' => 'muted',
+	'1' => '1',
+	'A' => 'text-warning'
+);
+
+if ( $query -> numRows() > 0 )
+{
+
+	$plano = new \App\Entities\Plano;
+
+	foreach ( $query -> result() as $row )
+	{
+
+		$row = $plano -> fill($row);
+
+		$rows = array();
+
+		$rows[] = '<div class="center-align " data-clickable="false">
+					<label>
+						<input type="checkbox" name="planos[]" class="trash" value="' . $row -> getId() . '" ' . $disabled . '>
+						<span></span>
+					<label>
+					</div>';
+
+		$rows[] = '<div class="center-align sts ' . $muted[$row -> getStatus()] . '"> ' . $row -> getId() . ' </div>';
+
+		$rows[] = '<div class="sts ' . $muted[$row -> getStatus()] . '"> ' . $row -> getTitulo() . ' </div>';
+
+		$rows[] = '<div class="center-align ' . $muted[$row -> getStatus()] . '">
+				   		~' . $row -> getVelocidadeDownload() . ' MB
+				   </div>';
+
+		$rows[] = '<div class="center-align ' . $muted[$row -> getStatus()] . '">
+				   		~' . $row -> getVelocidadeUpload() . ' MB
+				   </div>';
+
+		$wifi_incluso = '<i class="material-icons teal-text"> check_circle </i>';
+
+		if ( isset($row) && $row -> getWifiIncluso() === 'N' )
+			$wifi_incluso = '<i class="material-icons red-text"> cancel </i>';
+
+		$rows[] = '	<div class="switch center-align ' . $muted[$row -> getStatus()] . '">
+						' . $wifi_incluso . '
+					</div>';
+
+		$rows[] = '<div class="center-align ' . $muted[$row -> getStatus()] . '">
+						' . ($row -> getIdTipo() == 1 ? 'Fibra Óptica' : 'Cabo') . '
+				   </div>';
+				   
+
+		$rows[] = '<div class="center-align ' . $muted[$row -> getStatus()] . '">
+				   		<i class="left">R$</i> <span class="right-align" style="display: block;">' . $row -> getValorMensal() . '</span>
+				   </div>';
+
+		$status = '<i class="material-icons teal-text" data-tooltip="Ativo"> sentiment_satisfied </i>';
+
+		if ( isset($row) && $row -> getStatus() === '0' )
+			$status = '<i class="material-icons red-text" data-tooltip="Inativo"> sentiment_very_dissatisfied </i>';
+
+		$rows[] = '	<div class="switch center-align">
+						' . $status . '
+					</div>';
+
+		$rows[] = '	<div class="center-align">
+						<button type="button" class="btn blue waves-effect waves-light" data-tooltip="Editar #' . $row -> getId() . '" onclick="modal_edit();">
+							<i class="material-icons">edit</i>
+						</button>
+					</div>';
+
+		$option['data'][] = $rows;
+
+	}
+
+}
+
+echo json_encode($option);

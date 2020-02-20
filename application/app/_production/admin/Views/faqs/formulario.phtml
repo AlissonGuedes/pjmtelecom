@@ -1,0 +1,165 @@
+<?php $disabled = null; ?>
+
+<form action="<?php echo base_url(); ?>faqs"
+	  method="post"
+	  enctype="multipart/form-data"
+	  id="frm-faq"
+	  autocomplete="off">
+
+	<!-- modal-content -->
+	<div class="modal-content">
+
+		<!-- modal-body -->
+		<div class="modal-body">
+
+			<!-- row -->
+			<div class="row">
+
+				<!-- col -->
+				<div class="col s12 m6 pt-2 offset-s0 offset-m3">
+
+					<!-- #tab_faq -->
+					<div id="tab_faq">
+
+						<!-- assunto -->
+						<div class="input-field-container">
+							<div class="input-field transparent">
+								<input type="text"
+									   name="titulo"
+									   value="<?= isset($row) ? $row -> getTitulo() : null; ?>"
+									   id="titulo">
+								<div class="line-ripple indigo"></div>
+								<label for="titulo"
+									   class="<?= isset($row) ? 'active' : null; ?>">
+									Assunto
+								</label>
+							</div>
+							<div class="helper-line">
+								<div class="helper-text"></div>
+								<div class="helper-counter"></div>
+							</div>
+						</div>
+						<!--/assunto -->
+
+						<!-- descrição -->
+						<div class="input-field-container">
+							<div class="textarea-field transparent">
+								<textarea name="descricao"
+										  class="materialize-textarea"
+										  id="descricao"><?= isset($row) ? $row -> getDescricao() : null; ?></textarea>
+								<div class="line-ripple indigo"></div>
+								<label for="descricao"
+									   class="<?= isset($row) ? 'active' : null; ?>">
+									Descrição
+								</label>
+							</div>
+							<div class="helper-line">
+								<div class="helper-text"></div>
+								<div class="helper-counter"></div>
+							</div>
+						</div>
+						<!--/descrição -->
+
+						<!-- status -->
+						<div class="input-field-container">
+							<div class="input-field transparent">
+								<?php
+                            $checked = 'checked="checked"';
+                            if (isset($row) && $row -> getStatus() === '0') {
+                                $checked = null;
+                            }
+                            ?>
+								<div class="switch font-weight-600 left">
+									<label for="status"
+										   class="left">
+										Exibir
+									</label>
+									<label class="indigo right">
+										<input type="checkbox"
+											   name="status"
+											   class="right"
+											   id="status"
+											   value="1"
+											   <?= $checked; ?>>
+										<span class="lever right">
+										</span>
+									</label>
+								</div>
+							</div>
+							<div class="helper-line">
+								<div class="helper-text"></div>
+								<div class="helper-counter"></div>
+							</div>
+						</div>
+						<!--/status -->
+
+					</div>
+					<!--/#tab_faq -->
+
+				</div>
+				<!--/col -->
+
+			</div>
+			<!--/row -->
+
+		</div>
+		<!--/modal-body -->
+
+		<!-- .modal-footer -->
+		<div class="modal-footer hide">
+
+			<button type="reset"
+					class="modal-close waves-effect btn-flat left"
+					data-tooltip="Cancelar"
+					data-position="right">
+				<i class="material-icons left hide-on-small-only">close</i>
+				<span>
+					Cancelar
+				</span>
+			</button>
+
+			<button type="submit"
+					name="salvar"
+					value="salvar"
+					class="btn btn-primary teal waves-effect waves-light btn-small"
+					data-tooltip="Salvar"
+					data-position="left">
+				<i class="material-icons left hide-on-small-only">save</i>
+				<span>
+					Salvar
+				</span>
+			</button>
+
+			<input type="hidden"
+				   name="id"
+				   value="<?= isset($row) ? $row -> getId() : null; ?>">
+			<input type="hidden"
+				   name="action"
+				   class="action"
+				   value="salvar">
+			<input type="hidden"
+				   name="_method"
+				   value="<?= $method; ?>">
+			<input type="hidden"
+				   name="autor"
+				   value="<?= isset($row) ? $row -> getIdAutor() : $_SESSION[USERDATA]['id']; ?>">
+	
+		</div>
+		<!--/.modal-footer  -->
+
+	</div>
+	<!--/modal-content -->
+
+</form>
+
+<script>
+	load_plugins();
+	load_functions();
+
+	// $('input[name="descricao"]').focus();
+
+	$(document).ready(function() {
+		$('.tabs').tabs();
+	});
+
+</script>

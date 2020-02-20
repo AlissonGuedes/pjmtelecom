@@ -1,0 +1,13 @@
+.material-icons.background-round{position:relative;overflow:hidden}
+.chart-row,.chart-row{position:absolute;bottom:-8px;left:0px;letter-spacing:5px;line-height:0;font-size:0;white-space:nowrap;}
+.chart-row .chart-col,.chart-row .chart-col{display:inline-block;width:8px;height:10px;background:#000;margin:0 1px;vertical-align:bottom;transition:height .2s cubic-bezier(.65,.4,.29,1.01)}
+.chart-row .chart-col--green,.chart-row .chart-col--green{background:#26a957;height:18px}
+.chart-row .chart-col--green.inverse,.chart-row .chart-col--green.inverse{background:#9f9f9f}
+.chart-row .chart-col--orange,.navbar-brand .chart-row .chart-col--orange{background:#ff8207;height:30px}
+.chart-row .chart-col--orange.inverse,.navbar-brand .chart-row .chart-col--orange.inverse{background:#c8c8c8}
+.chart-row .chart-col--red,.navbar-brand .chart-row .chart-col--red{background:#f0402e;height:46px}
+.chart-row .chart-col--red.inverse,.navbar-brand .chart-row .chart-col--red.inverse{background:#7d7d7d}
+.card:hover .chart-row .chart-col--green,.card:hover .chart-row .chart-col--green{height:46px}
+.card:hover .chart-row .chart-col--orange,.card:hover .chart-row .chart-col--orange{height:20px}
+.card:hover .chart-row .chart-col--red,.card:hover .chart-row .chart-col--red{height:32px}
+.chart-col--green,.chart-col--orange,.chart-col--red{background:#fefefe !important;}

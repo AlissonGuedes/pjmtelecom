@@ -1,0 +1,61 @@
+<div id="login-page" class="row">
+
+	<div class="col s10 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-6">
+
+		<form action="<?= base_url(); ?>login" method="post" class="login-form" autocomplete="off">
+
+			<div class="row">
+				<div class="col s12">
+					<h5 class="center-align pt-3 pb-3">
+						<?= $titulo; ?>
+					</h5>
+				</div>
+			</div>
+
+			<div class="row margin">
+				<div class="input-field-container col s12">
+					<div class="input-field indigo-text transparent">
+						<i class="material-icons prefix"> person_outline </i>
+						<input type="text" name="login" id="username" autocomplete="off">
+						<div class="line-ripple indigo"></div>
+						<label for="username" class="center-align">Usuário</label>
+					</div>
+					<div class="helper-line">
+						<div class="helper-text"></div>
+						<div class="helper-counter"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row margin">
+				<div class="input-field-container col s12">
+					<div class="input-field indigo-text transparent">
+						<i class="material-icons prefix indigo-text"> lock_outline </i>
+						<input type="password" name="senha" id="senha" autocomplete="off">
+						<div class="line-ripple indigo"></div>
+						<label for="senha">Senha</label>
+					</div>
+					<div class="helper-line">
+						<div class="helper-text"></div>
+						<div class="helper-counter"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row margin">
+				<div class="col s12 pt-5 pb-5">
+					<button type="submit" name="entrar" class="btn waves-effect waves-light border-round blue darken-5 right">
+						<span style="display: inline-block;padding: 0px;line-height: inherit;position: relative;top: -4px;margin-left: 20px;">Entrar</span>
+						<i class="material-icons">input</i>
+					</button>
+				</div>
+			</div>
+
+			<input type="hidden" name="acao" value="entrar">
+			<input type="hidden" name="_method" value="<?= $method; ?>">
+
+		</form>
+
+	</div>
+
+</div>
