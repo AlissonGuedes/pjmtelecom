@@ -59,8 +59,8 @@
 											<p class="box_obs muted center-align">Somente Internet</p>
 											<div class="box_valor">
 												<span class="muted">Custo Mensal</span>
-												<h3 class="box_valor"><small>R$</small><span>45,00</span></h3>
-												<span class="muted">Instalação: 10x 15,00</span>
+												<h3 class="box_valor"><small>R$</small><span> <?= number_format($plano -> valor_mensal, 2, ',', '.'); ?></span></h3>
+												<!-- <span class="muted">Instalação: 10x 15,00</span> -->
 											</div>                                	
                                     	</div>
                                     </div>
@@ -82,37 +82,23 @@
                                     </div>
                                     <?php if ( ! empty($plano -> descricao) ) :?>
 									<div class="card-body">
-										<div class="divider mt-0"></div>
+										<!-- <div class="divider mt-0"></div> -->
 										<div class="row">
 											<div class="col s7 left-align"><h3>Custo Mensal</h3></div>
 											<div class="col s5 right-align"><h3>R$ <?= number_format($plano -> valor_mensal, 2, ',', '.'); ?></h3></div>
 										</div>
-										<div class="row">
-											<div class="col s7 left-align"><span>Taxa de Instalação</span></div>
-											<div class="col s5 right-align"><span>R$ <?= number_format($plano -> taxa_instalacao, 2, ',', '.'); ?></span></div>
-										</div>
-										<div class="divider dashed"></div>
-										<div class="row">
-											<div class="col s7 left-align"><h3>Total 12 Meses</h3></div>
-											<?php $media_custo_mensal = $plano -> valor_mensal * 12; ?>
-											<div class="col s5 right-align"><h3>R$ <?= number_format($media_custo_mensal, 2, ',', '.'); ?></h3></div>
-										</div>
-										<div class="row">
-											<div class="col s7 left-align"><span>Média do Custo/Mês**</span></div>
-											<div class="col s5 right-align"><span>R$ <?= number_format($media_custo_mensal / 12, 2, ',', '.'); ?></span></div>
-											<div class="col s12"><small class="muted">**Soma dos custos mensais / 12 </small></div>
-										</div>
-										<div class="divider"></div>
-										<div class="row">
-											<div class="col s12 left-align"><h3>Fidelidade</h3></div>
-											<div class="col s7 left-align"><span>Tempo de fidelidade</span></div>
-											<div class="col s5 right-align"><span class="bold"><?= $plano -> tempo_fidelidade; ?>
-											<?= $plano -> tempo_fidelidade == 0 ? 'Indefinido' : ( $plano -> tempo_fidelidade == 1 ? 'Mês' : 'Meses' ); ?></span></div>
-										</div>
-										<div class="row">
-											<div class="col s7 left-align"><span>Taxa de cancelamento</span></div>
-											<div class="col s5 right-align"><span class="bold">R$ <?= number_format($plano -> taxa_cancelamento, 2, ',', '.'); ?></span></div>
-										</div>
+										<!-- <div class="divider dashed"></div> -->
+										<!-- <div class="divider"></div> -->
+										<!-- <div class="row"> -->
+											<!-- <div class="col s12 left-align"><h3>Fidelidade</h3></div> -->
+											<!-- <div class="col s7 left-align"><span>Tempo de fidelidade</span></div> -->
+											<!-- <div class="col s5 right-align"><span class="bold"><?= $plano -> tempo_fidelidade; ?> -->
+											<!-- <?= $plano -> tempo_fidelidade == 0 ? 'Indefinido' : ( $plano -> tempo_fidelidade == 1 ? 'Mês' : 'Meses' ); ?></span></div> -->
+										<!-- </div> -->
+										<!-- <div class="row"> -->
+											<!-- <div class="col s7 left-align"><span>Taxa de cancelamento</span></div> -->
+											<!-- <div class="col s5 right-align"><span class="bold">R$ <?= number_format($plano -> taxa_cancelamento, 2, ',', '.'); ?></span></div> -->
+										<!-- </div> -->
 										<div class="divider"></div>
 										<div class="row">
 											<div class="col s12 left-align"><h3>Velocidade</h3></div>
