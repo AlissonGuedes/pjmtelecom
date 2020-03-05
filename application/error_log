@@ -1,4 +1,0 @@
-[14-Feb-2020 16:50:05 America/Recife] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/pjmtelecom/git/application/system/Database/BaseConnection.php on line 1305
-[14-Feb-2020 16:55:21 America/Recife] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/pjmtelecom/git/application/system/Database/BaseConnection.php on line 1134
-[14-Feb-2020 16:57:19 America/Recife] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/pjmtelecom/git/application/system/Database/BaseBuilder.php on line 2881
-[17-Feb-2020 12:20:01 America/Recife] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/pjmtelecom/git/application/system/Session/Handlers/FileHandler.php on line 208
